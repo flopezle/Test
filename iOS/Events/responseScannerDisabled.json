@@ -1,0 +1,25 @@
+[
+    {
+        "title": "responseScannerDisabled",
+        "name": "responseScannerDisabled",
+        "version": "2.3.0",
+        "description": "Called to notify that the scanner has been disabled.",
+        "parameters": [
+            {
+                "name": "info",
+                "type": "ScannerDisabledResponseInfo",
+                "validation": "Required",
+                "notes": "The info object contains information about the scanner operation."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "10",
+        "type": "method",
+        "example": {
+            "code": "//responseScannerDisabled:\n//Called to notify that the scanner has been disabled. \n-(void)responseScannerDisabled:(id&lt;ScannerDisabledResponseInfo&gt;)info\n{\n\tNSLog(info.status);\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

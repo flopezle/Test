@@ -1,0 +1,25 @@
+[
+    {
+        "title": "didConnect",
+        "name": "didConnect",
+        "version": "2.2.2",
+        "description": "Called when a connection to the client has been established through the method clientForDevice.",
+        "parameters": [
+            {
+                "name": "client",
+                "type": "HeftClient",
+                "validation": "Required",
+                "notes": "The client object, used to perform transactions and communication to device."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//didConnect:\n//Called when a connection to specified device was created.\n-(void)didConnect:(id&lt;HeftClient&gt;)client \n{\n\t// connected successfully to a device\n\t// assign the client to our heftClient property\n\theftClient = client;\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

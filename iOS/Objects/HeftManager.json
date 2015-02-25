@@ -1,0 +1,61 @@
+[
+    {
+        "title": "HeftManager",
+        "name": "HeftManager",
+        "version": "2.2.2",
+        "description": "The HeftManager is used for discovering devices and to connect and create a HeftClient object for the appropriate device. The manager reports messages to HeftDiscoveryDelegate protocol during the discovery process. Starting the manager is usually the first thing that should be done after loading up an UIView that enables the user to search for and connect to BT devices. When starting the manager an object (usually the UIViewController itself) is passed as the HeftDiscoveryDelegate delegate to report to.",
+        "methods": [
+
+        ],
+        "properties": [
+            {
+                "name": "devicesCopy",
+                "type": "NSMutableArray",
+                "description": "Stored array which contains all found devices.",
+                "accessorType": "get"
+            },
+            {
+                "name": "delegate",
+                "type": "NSObject&lt;HeftDiscoveryDelegate&gt;",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "version",
+                "type": "NSString",
+                "description": "Current HeftManager version. ",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Methods",
+                "elements": [
+                    {
+                        "name": "startDiscovery",
+                        "description": "- (void)startDiscovery:(BOOL)fDiscoverAllDevices;"
+                    },
+                    {
+                        "name": "resetDevices",
+                        "description": "- (void)resetDevices;"
+                    },
+                    {
+                        "name": "sharedManager",
+                        "description": "+ (HeftManager*)sharedManager;"
+                    },
+                    {
+                        "name": "clientForDevice",
+                        "description": "- (void)clientForDevice:(HeftRemoteDevice*)device sharedSecret:(NSData*)sharedSecret delegate:(NSObject&lt;HeftStatusReportDelegate&gt;*)aDelegate;"
+                    }
+                ]
+            }
+
+    ],
+        "order": "0",
+        "type": "object",
+        "example": {
+            "code": "// Create a manager on view load\n- (void)viewDidLoad{\n\t[super viewDidLoad];\n\tHeftManager* manager = [HeftManager sharedManager];\n\tmanager.delegate = self;\n\t[manager resetDevices]; // Clean out device list\n}",
+            "language": "objectivec"
+        }
+    }
+]

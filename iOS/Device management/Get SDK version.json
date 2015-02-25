@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Get SDK version",
+        "name": "getSDKVersion",
+        "version": "2.3.0",
+        "description": "Returns the current SDK version number in string format" ,
+        "parameters": [],
+        "descriptionLists": [
+
+        ],
+        "order": "12",
+        "type": "method",
+        "example": {
+            "code": "//getSDKVersion\n//Log SDK version number\n\tNSLOG(@\"SDK version: %@\", [heftManager getSDKVersion];",
+            "language": "objectivec"
+        }
+    }
+]

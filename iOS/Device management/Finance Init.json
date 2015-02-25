@@ -1,0 +1,45 @@
+[
+    {
+        "title": "financeInit",
+        "name": "financeInit",
+        "version": "2.2.2",
+        "description": "Initializes the card reader and updates config. This is used to manually update card reader software if available." ,
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "Invoked to inform when an error response happens."
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "This method always returns YES"
+                    }
+                ]
+            }
+        ],
+        "order": "10",
+        "type": "method",
+        "example": {
+            "code": "//financeInit\n//Initializes the card reader and updates config.\n-(IBAction)updateCardReader\n{\n\t[heftClient financeInit];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

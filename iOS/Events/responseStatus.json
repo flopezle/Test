@@ -1,0 +1,25 @@
+[
+    {
+        "title": "responseStatus",
+        "name": "responseStatus",
+        "version": "2.2.2",
+        "description": "Called to inform about the status of the transaction, several calls can be expected. Several calls to this method happen after a transaction is initiated from the HeftClient to inform about status of operation. The info object contains a string (status) and a dictionary (xml). ",
+        "parameters": [
+            {
+                "name": "info",
+                "type": "ResponseInfo",
+                "validation": "Required",
+                "notes": "Includes status code, status text and detailed xml."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//responseStatus:\n//Called to inform about the status of the transaction\n-(void)esponseStatus:(id&lt;ResponseInfo&gt;)info\n{\n\tNSLog(info.status);\n\tNSLog(info.xml.description);\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

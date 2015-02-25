@@ -1,0 +1,29 @@
+[   {
+    "title": "HeftRemoteDevice",
+    "name": "HeftRemoteDevice",
+    "version": "2.2.2",
+    "description": "An object containing a reference to the accessory device which is passed to the HeftClient on creation.",
+    "properties": [
+        {
+            "name": "name",
+            "type": "NSString",
+            "description": "Name of device",
+            "accessorType": "get"
+        },
+        {
+            "name": "accessory",
+            "type": "EAAccessory",
+            "description": "The EAAccessory object",
+            "accessorType": "get"
+        }
+    ],
+    "descriptionLists": [
+
+    ],
+    "order": "3",
+    "type": "object",
+    "example": {
+        "code": "",
+        "language": "objectivec"
+    }
+}   ]

@@ -1,0 +1,25 @@
+[
+    {
+        "title": "didFindAccessoryDevice",
+        "name": "didFindAccessoryDevice",
+        "version": "2.2.2",
+        "description": "Notifies that new accessory device was found. When a card reader is detected this delegate is called. You can take the newDevice object and create a new heft client for that particular device or store it in memory to connect to it later.",
+        "parameters": [
+            {
+                "name": "newDevice",
+                "type": "HeftRemoteDevice",
+                "validation": "Required",
+                "notes": "An object containing a reference to the accessory device"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "2",
+        "type": "method",
+        "example": {
+            "code": "//didFindAccessoryDevice\n//Delegate that notifies that new accessory device was found.\n- (void)didFindAccessoryDevice:(HeftRemoteDevice*)newDevice\n{\n\tNSLog(@\"Found new device\");\n\t//Connect to device or store found device for later\n} \n",
+            "language": "objectivec"
+        }
+    }
+]

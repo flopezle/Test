@@ -1,0 +1,38 @@
+[
+    {
+        "title": "responseInfo",
+        "name": "responseInfo",
+        "version": "2.2.2",
+        "description": "A responseInfo object is passed to the responseStatus delegate. It contains information from the card reader about the status of the current transaction. There are two properties: status and xml. status is a string and xml is a dictionary. Usually status contains a message descriptive enough to know whats going on and is useful for displaying to user. The xml dictionary contains all elements of the XML formatted data passed from the card reader and has detailed information on the current state of the card reader.",
+        "properties": [
+            {
+                "name": "statusCode",
+                "type": "int",
+                "description": "A numerical representation of the status.",
+                "accessorType": "get"
+            },
+            {
+                "name": "status",
+                "type": "Status as NSString",
+                "description": "Financial transaction status message.",
+                "accessorType": "get"
+            },
+            {
+                "name": "xml",
+                "type": "XML as NSDictionary",
+                "description": " Feedback with xml details about transaction from the card reader.",
+                "accessorType": "get"
+
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "6",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "objectivec"
+        }
+    }
+]

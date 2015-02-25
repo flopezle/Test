@@ -1,0 +1,66 @@
+<div class="row-fluid">
+    <div class="col-sm-8">
+        <p>The Handpoint iOS SDK comes with an additional library which is configured to run in simulation mode,
+            reducing the need for a card reader when developing the UI. The simulator has a limited functionality and
+            should only be relied upon when prototyping the user interface.</p>
+
+        <p>The simulator library is located in the HeftSimulator folder. To use the simulator library just link it as
+            you would do with a normal library and make sure there are no references to the Heft Library.</p>
+
+        <p>To switch from the simulator to the regular heft library just remove the references to the simulator library
+            and link the Heft Library instead to your project</p>
+
+        <p>The behavior of the simulator is controlled by the passed amount of the simulated transaction operation.
+            There are four different behaviors simulated: <strong>Declined transaction</strong>, <strong>Cancelled
+                transaction</strong>, <strong>Signature Request</strong> and <strong>Approved transaction</strong>.</p>
+        <br>
+        <h4>Usage</h4>
+
+        <p>The following code would simulate a declined transaction as the amount is 1000.</p>
+        <pre><code class="objectivec">[heftClient saleWithAmount:[1000] currency:@"GBP" cardholder:YES];</code></pre>
+        <p>The table below shows the different options.</p>
+        <table class="table">
+            <tr>
+                <td>
+                    <strong>Amount</strong>
+                </td>
+                <td>
+                    <strong>Behaviour</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1000
+                </td>
+                <td>
+                    Declined transaction
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2000
+                </td>
+                <td>
+                    User cancelled
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    3000
+                </td>
+                <td>
+                    Signature requested
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Any other amount
+                </td>
+                <td>
+                    Approved transaction
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>

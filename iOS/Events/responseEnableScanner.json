@@ -1,0 +1,26 @@
+[
+    {
+        "title": "responseEnableScanner",
+        "name": "responseEnableScanner",
+        "version": "2.2.2",
+        "deprecated": "2.3.0",
+        "description": "Called to notify that the scanner has been disabled. (Note: this confusion is to be fixed in later versions)",
+        "parameters": [
+            {
+                "name": "info",
+                "type": "EnableScannerResponseInfo",
+                "validation": "Required",
+                "notes": "The info object contains information about the scanner operation."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "10",
+        "type": "method",
+        "example": {
+            "code": "//responseEnableScanner:\n//Called to notify that the scanner has been disabled. \n-(void)responseEnableScanner:(id&lt;EnableScannerResponseInfo&gt;)info\n{\n\tNSLog(info.status);\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

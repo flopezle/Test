@@ -1,0 +1,28 @@
+[
+    {
+        "title": "Shared Manager",
+        "name": "sharedManager",
+        "version": "2.2.2",
+        "description": "Provides access to the heftManager.  The heft manager is used for discovering devices and creating a HeftClient with a connection to selected device." ,
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "HeftManager",
+                        "description": "The heftManager instance"
+                    }
+                ]
+            }
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//SharedManager\n//Provides access to the heftManager\n\n//Create an instance of the shared manager at set it's delegate\nHeftManager* heftManager = [HeftManager sharedManager];\nheftManager.delegate = self;\n",
+            "language": "objectivec"
+        }
+    }
+]

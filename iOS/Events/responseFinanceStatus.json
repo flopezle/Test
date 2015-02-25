@@ -1,0 +1,25 @@
+[
+    {
+        "title": "responseFinanceStatus",
+        "name": "responseFinanceStatus",
+        "version": "2.2.2",
+        "description": "Notifies that transaction has completed. ",
+        "parameters": [
+            {
+                "name": "info",
+                "type": "FinanceResponseInfo",
+                "validation": "Required",
+                "notes": "Information about current transaction status."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//responseFinanceStatus:\n//Called at the end of transaction to inform about the result of the operation\n-(void)esponseFinanceStatus:(id&lt;FinanceResponseInfo&gt;)info\n{\n\tNSLog(info.status);\n\tNSLog(info.customerReceipt);\n\t//print receipts\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

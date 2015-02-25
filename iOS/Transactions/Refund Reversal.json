@@ -1,0 +1,68 @@
+[
+    {
+        "title": "Refund reversal",
+        "name": "refundVoidWithAmount",
+        "version": "2.2.2",
+        "description": "Request a void operation on previous refund transaction, referred to by the parameter transaction. Parameters amount, currency and present must be the same as the in the refund to be voided. This operation reverts (if possible) a specific refund identified with a transaction id. Note that transactions can only be reversed within the same day as the transaction was made.",
+        "parameters": [
+            {
+                "name": "amount",
+                "type": "NSInteger",
+                "validation": "Required",
+                "notes": "Amount of funds to charge - in the minor unit of currency (f.ex. 1000 is 10.00 GBP)"
+            },
+            {
+                "name": "currency",
+                "type": "NSString*",
+                "validation": "Required",
+                "notes": "3 letter currency code in accordance to ISO4217"
+            },
+            {
+                "name": "present",
+                "type": "BOOL",
+                "validation": "Required",
+                "notes": "YES if cardholder is present - NO otherwise"
+            },
+            {
+                "name": "reference",
+                "type": "NSString*",
+                "validation": "Optional",
+                "notes": "string for customer reference"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "Invoked to inform when an error response happens."
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//RefundVoidWithAmount:currency:cardholder:transaction:\n//Initiates a void request on a previous refund transaction.\n-(void)voidRefundWithId:(NSString*)transactionID\n{\n\t[heftClient refundVoidWithAmount:amount\n\t\t\t\t\t\t\t\t\tcurrency:currency\n\t\t\t\t\t\t\t\t\tcardholder:isPresent\n\t\t\t\t\t\t\t\t\ttransaction:transactionID;]\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

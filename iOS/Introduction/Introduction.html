@@ -1,0 +1,84 @@
+<h2>Welcome iOS Developers</h2>
+<div class="row-fluid">
+    <div class="col-sm-7">
+        <p>The Handpoint SDK platform a.k.a headstart for iOS provides a simple application programming interface
+            simplifying the development of your payment solutions considerably.</p>
+
+        <p>You as an mPOS application developer can get access to the various components for integrating with Handpoint
+            Platform as well as sample source to get you started quickly.</p>
+
+        <p>The Handpoint SDK for iOS includes:</p>
+        <ul style="border-bottom: 1px solid #eee;padding-bottom: 15px;">
+            <li><strong>HeftSimulatorLibrary</strong>: A version of the library which simulates card reader behaviour
+            </li>
+            <li><strong>Docs</strong>: Integration manual for the Handpoint SDK</li>
+            <li><strong>Heft Library</strong>:The library and it’s interface</li>
+        </ul>
+        <br>
+        <h4>Overview</h4>
+
+        <p>The 3 files that make up the API (provide access to the library) are HeftManager.h, HeftClient.h and
+            HeftStatusReportPublic.h. The functionality includes discovering BT devices, connecting to a compatible
+            device (card reader), performing financial transactions, receiving and responding to messages from the card
+            reader as well as access to logs. The SDK comes also with a library configured to simulate a card reader -
+            intended for early development of a user interface.</p>
+        <br>
+        <h4>Supported functionality:</h4>
+
+        <ul>
+            <li>Discovery of remote BT devices.</li>
+            <li>Connect to remote BT device.</li>
+            <li>Physical connection to BluePad500 external accessory.</li>
+            <li>Executing financial transaction.</li>
+            <li>Reporting status of transactions.</li>
+            <li>Control and access to device logs.</li>
+            <li>Scan with BluePad500 devices.</li>
+            <li>Limited card reader simulation.</li>
+        </ul>
+        <br>
+        <h4>Quick look at the interface</h4>
+
+        <p><strong>HeftManager.h</strong> discovers BT devices and makes them accessible through the sharedManager
+            method. Returns a HeftClient object for a specific BT device through the method clientForDevice. Provides
+            the <strong>HeftDiscoveryDelegate</strong> protocol for handling messages during the discovery process.</p>
+
+        <p><strong>HeftClient.h</strong> is the main interface and handles the communication between the mPos app and
+            the card reader. The clientForDevice method of the HeftManager returns a HeftClient object. The HeftClient
+            object also stores information about it's card reader device in the mpedInfo dictionary.</p>
+
+        <p><strong>HeftStatusReportPublic.h</strong> provides the <strong>HeftStatusReportDelegate</strong> protocol
+            which defines a number of methods for implementing in the mPos app. These methods are called by heft at
+            appropriate times for reporting status and results of operations done by the HeftClient object.</p>
+        <br>
+        <h4>Dependencies</h4>
+
+        <p>The Heft library depends on the <strong>Security</strong> and <strong>ExternalAccessory</strong> frameworks
+            included with the iOS SDK. These frameworks and the heft library, libheft.a need to be linked to your
+            project for the Handpoint interface to work properly. Also the <code>com.datecs.pinpad</code> string needs
+            to be added to the <code>"Supported external accessory protocols"</code> in the apps .plist file.</p>
+        <br>
+        <h4>Special build settings</h4>
+
+        <p>A part of the library is written in c++ therefor the -lc++ linker flag needs to be set. Add it under "Other
+            Linker Flags" under the "Linking" section of your projects settings "Build Settings" tab. <br><br>Also, to
+            prevent the warning: "file was built for archive which is not the architecture being linked (armv7s)". Then
+            set Build Active Architecture only to YES.</p>
+
+    </div>
+    <div class="col-sm-2 downloadSDK">
+        <div style="text-align: center; margin-top: 25px;">
+            <span class="ball ball-ios-devices"></span>
+
+            <form id="getSDK" action="download.php" method="POST">
+                <input type="hidden" name="url"
+                       value="https://www.handpoint.com/downloads/sdk/Handpoint-ios-SDK-v2.3.0.zip"/>
+                <input type="hidden" name="name" value="iOS SDK"/>
+                <br/>
+                <button class="btn btn-primary btn-large">Get the SDK</button>
+                <p>
+                    <small>version 2.3.0</small>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

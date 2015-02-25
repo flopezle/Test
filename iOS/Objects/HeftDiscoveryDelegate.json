@@ -1,0 +1,40 @@
+[
+    {
+        "title": "HeftDiscoveryDelegate",
+        "name": "HeftDiscoveryDelegate",
+        "version": "2.2.2",
+        "description": "Notifications sent by the SDK on various events - new available device found, connection lost, connection found, etc",
+        "methods": [
+
+        ],
+        "properties": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Methods",
+                "elements": [
+                    {
+                        "name": "didDiscoverFinished",
+                        "description": "- (void)didDiscoverFinished;"
+                    },
+                    {
+                        "name": "didFindAccessoryDevice",
+                        "description": "- (void)didFindAccessoryDevice:(HeftRemoteDevice*)newDevice;"
+                    },
+                    {
+                        "name": "didLostAccessoryDevice",
+                        "description": "- (void)didLostAccessoryDevice:(HeftRemoteDevice*)oldDevice;"
+                    }
+                ]
+            }
+
+    ],
+        "order": "4",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "objectivec"
+        }
+    }
+]

@@ -1,0 +1,127 @@
+[
+    {
+        "title": "HeftClient",
+        "name": "HeftClient",
+        "version": "2.2.2",
+        "description": "High level interface for Headstart API. HeftClient handles the communication between the mPos app and the card reader. The HeftClient object also stores information about it's card reader device in the mpedInfo dictionary. Device Log operations are also implemented in HeftClient.\nTo create a new HeftClient object the clientForDevice method is called from an instance of the HeftManager. Transaction and log requests (and the acceptSignature response) are done by calling HeftClient methods with the relevant input. The library reports the status of the requests by calling delegates of the HeftStatusReportDelegate protocol.",
+        "methods": [
+
+        ],
+        "properties": [
+            {
+                "name": "mpedInfo",
+                "type": "NSDictionary",
+                "description": "Dictionary with MPED info details, obtained by querying it from device on interface creation.",
+                "accessorType": "get"
+            },
+            {
+                "name": "kSerialNumberInfoKey",
+                "type": "NSString constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kPublicKeyVersionInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kEMVParamVersionInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kGeneralParamInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kManufacturerCodeInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kModelCodeInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kAppNameInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kAppVersionInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            },
+            {
+                "name": "kXMLDetailsInfoKey",
+                "type": "NSString Constant",
+                "description": "Key for value in mpedInfo",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Methods",
+                "elements": [
+                    {
+                        "name": "saleWithAmount",
+                        "description": "- (BOOL)saleWithAmount:(NSInteger)amount currency:(NSString*)currency cardholder:(BOOL)present;"
+                    },
+                    {
+                        "name": "refundWithAmount",
+                        "description": "- (BOOL)refundWithAmount:(NSInteger)amount currency:(NSString*)currency cardholder:(BOOL)present;"
+                    },
+                    {
+                        "name": "saleVoidWithAmount",
+                        "description": "- (BOOL)saleVoidWithAmount:(NSInteger)amount currency:(NSString*)currency cardholder:(BOOL)present transaction:(NSString*)transaction;"
+                    },
+                    {
+                        "name": "refundVoidWithAmount",
+                        "description": "(BOOL)refundVoidWithAmount:(NSInteger)amount currency:(NSString*)currency cardholder:(BOOL)present transaction:(NSString*)transaction;"
+                    },
+                    {
+                        "name": "enableScanner",
+                        "description": "-(BOOL)enableScanner;"
+                    },
+                    {
+                        "name": "financeInit",
+                        "description": "- (BOOL)financeInit;"
+                    },
+                    {
+                        "name": "logSetLevel",
+                        "description": "- (BOOL)logSetLevel:(eLogLevel)level;"
+                    },
+                    {
+                        "name": "logReset",
+                        "description": "- (BOOL)logReset;"
+                    },
+                    {
+                        "name": "logGetInfo",
+                        "description": "- (BOOL)logGetInfo;"
+                    },
+                    {
+                        "name": "acceptSignature",
+                        "description": "- (void)acceptSignature:(BOOL)flag;"
+                    }
+                ]
+            }
+
+    ],
+        "order": "1",
+        "type": "object",
+        "example": {
+            "code": "//clientForDevice:sharedSecret:delegate:\n//Creates a HeftClient object(connection to device)\n-(void)connectToFirstCardReaderWith:(NSData*)sharedSecret;\n{\n\t//Try to connect to first device in devices array\n\t[heftManager clientForDevice:[[heftManager devicesCopy] objectAtIndex:0] sharedSecret:sharedSecret delegate:self];\n\t//Client calls the didConnect delegate function if successful \n}\n\n//....\n\n//didConnect:\n//Called when a connection to specified device was created.\n-(void)didConnect:(id&lt;HeftClient&gt;)client \n{\n\t// connected successfully to a device\n\t// assigne the client to our heftClient property\n\theftClient = client;\n}\n\n// .....\n\n// Do one sale later in code\n[heftClient saleWithAmount:1000 currency:@\"GBP\" cardholder:YES];",
+            "language": "objectivec"
+        }
+    }
+]

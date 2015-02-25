@@ -1,0 +1,91 @@
+[
+    {
+        "title": "Enable scanner",
+        "name": "enableScanner",
+        "version": "2.3.0",
+        "description": "Places the card reader in a scan mode. Only if the card reader supports it. To cancel/stop scan mode call the cancel method of the heft client. " ,
+        "parameters": [
+            {
+                "name": "multiScan",
+                "type": "Boolean",
+                "validation": "Optional",
+                "notes": "Yes [default] to activate multiScan mode - No to activate singleScan mode. Multi-scan mode allows the user to scan until scan operation is canceled or timeout occurs, single-scan mode is active until one scan has occurred then it disables the scan mode."
+            },
+            {
+                "name": "buttonMode",
+                "type": "Boolean",
+                "validation": "Optional",
+                "notes": "Yes [default] if buttonMode is on - No otherwise. If button mode is on then the operator needs to press the scan buttons to activate the scanner(during scan mode)."
+            },
+            {
+                "name": "timeoutSeconds",
+                "type": "NSInteger",
+                "validation": "Optional",
+                "notes": "0 [default] - card reader will determine when scanning should time out. x - the scanner will time out if x seconds of inactivity occur."
+            }
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseScannerEvent:",
+                        "description": "Called to inform that a scan has been performed, several calls can be expected. Several calls to this method happen after a scan action has been performed to inform about scan information operation. The info object contains scanCode, status  and a dictionary (xml). "
+                    }
+                ]
+            }
+        ],
+        "order": "8",
+        "type": "method",
+        "example": {
+            "code": "//enableScanner:multiScan:buttonMode:timeoutSeconds\n//Places the card reader in a scan only mode. \n//To cancel/stop scan mode call cancel function.\n-(IBAction)startScan \n{\n\t[heftClient enableScanner];\n}\n-(IBAction)startMultiScan\n{\n\t[heftClient enableScannerWithMultiScan:YES];\n}\n",
+            "language": "objectivec"
+        }
+    },
+    {
+        "title": "Enable scanner",
+        "name": "enableScanner",
+        "version": "2.2.2",
+        "deprecated": "2.3.0",
+        "description": "Places the card reader in a scan mode. Only if the card reader supports it. To cancel/stop scan mode call the cancel method of the heft client. " ,
+        "parameters": [
+            {
+                "name": "multiScan",
+                "type": "Boolean",
+                "validation": "Optional",
+                "notes": "Yes [default] to activate multiScan mode - No to activate singleScan mode. Multi-scan mode allows the user to scan until scan operation is canceled or timeout occurs, single-scan mode is active until one scan has occurred then it disables the scan mode."
+            },
+            {
+                "name": "buttonMode",
+                "type": "Boolean",
+                "validation": "Optional",
+                "notes": "Yes [default] if buttonMode is on - No otherwise. If button mode is on then the operator needs to press the scan buttons to activate the scanner(during scan mode)."
+            },
+            {
+                "name": "timeoutSeconds",
+                "type": "NSInteger",
+                "validation": "Optional",
+                "notes": "0 [default] - card reader will determine when scanning should time out. x - the scanner will time out if x seconds of inactivity occur."
+            }
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseScannerEvent:",
+                        "description": "Called to inform that a scan has been performed, several calls can be expected. Several calls to this method happen after a scan action has been performed to inform about scan information operation. The info object contains scanCode, status  and a dictionary (xml). "
+                    }
+                ]
+            }
+        ],
+        "order": "8",
+        "type": "method",
+        "example": {
+            "code": "//enableScanner:multiScan:buttonMode:timeoutSeconds\n//Places the card reader in a scan only mode. \n//To cancel/stop scan mode call cancel function.\n-(IBAction)startScan \n{\n\t[heftClient enableScanner];\n}\n-(IBAction)startMultiScan\n{\n\t[heftClient enableScanner:YES];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

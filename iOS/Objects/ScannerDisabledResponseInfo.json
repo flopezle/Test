@@ -1,0 +1,35 @@
+[   {
+    "title": "ScannerDisabledResponseInfo",
+    "name": "ScannerDisabledResponseInfo",
+    "version": "2.3.0",
+    "description": "The info object contains information about the scanner operation.",
+    "properties": [
+        {
+            "name": "statusCode",
+            "type": "int",
+            "description": "A numerical representation of the status.",
+            "accessorType": "get"
+        },
+        {
+            "name": "status",
+            "type": "Status as NSString",
+            "description": "Financial transaction status message.",
+            "accessorType": "get"
+        },
+        {
+            "name": "xml",
+            "type": "XML as NSDictionary",
+            "description": " Feedback with xml details about transaction from the card reader.",
+            "accessorType": "get"
+        }
+    ],
+    "descriptionLists": [
+
+    ],
+    "order": "9",
+    "type": "object",
+    "example": {
+        "code": "",
+        "language": "objectivec"
+    }
+}   ]

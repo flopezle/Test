@@ -1,0 +1,130 @@
+[   {
+    "title": "Transaction Details",
+    "name": "XML as NSDictionary",
+    "version": "2.2.2",
+    "description": "The contents of the xml property depend on which type of operation the card reader is responding to. Listed below are all possible keys in the dictionary.  Note that not all fields are included all the time. ",
+    "properties": [
+
+    ],
+    "descriptionLists": [
+        {
+            "name": "Dictionary keys:",
+            "elements": [
+                {
+                    "name": "StatusMessage",
+                    "description": "A human readable description for the returned Status."
+                },
+                {
+                    "name": "TransactionType",
+                    "description": "The type of transaction performed: UNDEFINED, SALE, VOID_SALE, REFUND, VOID_REFUND, CANCEL_SALE, CANCEL_REFUND"
+                },
+                {
+                    "name": "FinancialStatus",
+                    "description": "The result of the transaction: UNDEFINED, APPROVED, DECLINED, PROCESSED, FAILED, CANCELLED"
+                },
+                {
+                    "name": "RequestedAmount",
+                    "description": "The amount requested by the POS, as requested by the POS (i.e. no decimal point)."
+                },
+                {
+                    "name": "GratuityAmount",
+                    "description": "The gratuity amount entered by the cardholder, if any."
+                },
+                {
+                    "name": "GratuityPercentage",
+                    "description": "The gratuity amount, as a percentage of the requested amount."
+                },
+                {
+                    "name": "TotalAmount",
+                    "description": "The total of the gratuity and requested amount."
+                },
+                {
+                    "name": "Currency",
+                    "description": "The currency code used for the transaction."
+                },
+                {
+                    "name": "TransactionID",
+                    "description": "The transaction number used for this transaction, as maintained by the Eft Client."
+                },
+                {
+                    "name": "EFTTransactionID",
+                    "description": "The EFT reference, given by the system, to make the transaction unique."
+                },
+                {
+                    "name": "OriginalEFTTransactionID",
+                    "description": "The original EFT reference, given by the POS, as part of a VOID_SALE or a VOID_REFUND transaction."
+                },
+                {
+                    "name": "EFTTimestamp",
+                    "description": "The date and time of the transaction, in ISO format (YYYYMMDDHHmmSS)."
+                },
+                {
+                    "name": "AuthorisationCode",
+                    "description": "The transaction authorization code, as given by the system."
+                },
+                {
+                    "name": "CVM",
+                    "description": "The Cardholder Verfication Method:  UNDEFINED, SIGNATURE, PIN, PIN_SIGNATURE, FAILED, NOT_REQUIRED"
+                },
+                {
+                    "name": "CardEntryType",
+                    "description": "The card data acquisition type: UNDEFINED, MSR, ICC, CNP"
+                },
+                {
+                    "name": "CardSchemeName",
+                    "description": "The card, reported, scheme name."
+                },
+                {
+                    "name": "CardTypeId",
+                    "description": "The ID of the Card Type."
+                },
+                {
+                    "name": "SerialNumber",
+                    "description": "The serial number of the PED."
+                },
+                {
+                    "name": "BatteryStatus",
+                    "description": "A number, followed by the % sign, which indicates current charge level of the battery."
+                },
+                {
+                    "name": "BatterymV",
+                    "description": "An integer, which represent the batter charge, in mV."
+                },
+                {
+                    "name": "BatteryCharging",
+                    "description": "Indicates whether the battery is charging, or not. Values are true or false."
+                },
+                {
+                    "name": "ExternalPower",
+                    "description": "Indicates whether the PED is connected to an external power source (e.g. a AC adapter). Values are true or false."
+                },
+                {
+                    "name": "ApplicationName",
+                    "description": "The name of the application running on the PED."
+                },
+                {
+                    "name": "ApplicationVersion",
+                    "description": "A version string of the form major.minor.build”(e.g. 1.2.118)."
+                },
+                {
+                    "name": "ErrorMessage",
+                    "description": "Description of the error, if any."
+                },
+                {
+                    "name": "code",
+                    "description": "Scanned code from the device in scanning mode."
+                },
+                {
+                    "name": "RecoveredTransaction",
+                    "description": "Indicates that the transaction result is a recovered transaction. The key is only included if value is true."
+                }
+            ]
+        }
+    ],
+    "order": "12",
+    "type": "object",
+    "example": {
+        "code": "",
+        "language": "objectivec"
+    }
+}   ]

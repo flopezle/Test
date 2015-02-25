@@ -1,0 +1,25 @@
+[
+    {
+        "title": "requestSignature",
+        "name": "requestSignature",
+        "version": "2.2.2",
+        "description": "Is called if during a financial operation a signature from the customer is needed. The requestSignature delegate should be implemented to print out or display the receipt for the customer to sign and provide the merchant with the means to confirm the signature. ",
+        "parameters": [
+            {
+                "name": "receipt",
+                "type": "NSString*",
+                "validation": "Required",
+                "notes": "The receipt is a html formatted string containing a receipt for the customer to sign"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "7",
+        "type": "method",
+        "example": {
+            "code": "//requestSignature:\n//Is called if a signature from the customer is needed.\n-(void)requestSignature:(NSString*)receipt\n{\n\tNSLog(receipt);\n\t//Display buttons to accept or decline customer signature\n\tUIAlertView* alert = [[UIAlertView alloc] initWithTitle:@\"\" message:@\"sign?\" delegate:self cancelButtonTitle:@\"No\" otherButtonTitles:@\"Yes\", nil];\n\t[alert show];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

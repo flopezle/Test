@@ -1,0 +1,18 @@
+[
+    {
+        "title": "Get SDK build number",
+        "name": "getSDKBuildNumber",
+        "version": "2.3.0",
+        "description": "Returns the current SDK build number in string format" ,
+        "parameters": [],
+        "descriptionLists": [
+
+        ],
+        "order": "13",
+        "type": "method",
+        "example": {
+            "code": "//getSDKBuildNumber\n//Log SDK build number\n\tNSLOG(@\"SDK build: %@\", [heftManager getSDKBuildNumber];",
+            "language": "objectivec"
+        }
+    }
+]

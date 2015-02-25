@@ -1,0 +1,248 @@
+<div class="row-fluid">
+<div class="col-sm-8">
+<p>This section will walk you through the development of a very simple payment app. It will only use one view and offer no user interaction. The main objective of this guide is to familiarise the reader with using the library. No focus will be on the user interface and we will be using the heft simulation library.</p>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                        Create application
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul>
+                        <li>Create a new iOS project in Xcode, select the "Single View Application" template.</li>
+                        <li>On the next screen enter your product name (f.ex. myPosApp) and make sure "Use Storyboards" and "Use Automatic Reference Counting" are checked.</li>
+                        <li>Press next and choose where to store your project.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                        Adding dependencies
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                    <p>To link the heft simulator library simply drag and drop the HeftSimulatorLibrary folder onto your project in the project navigator.</p>
+
+                    <p class="alert alert-success">
+                        If you were intending to use a device right from the start you would just drag and drop the HeftLibrary folder onto your project in the navigator. To switch from simulator to the HeftLibrary just right click on the HeftSimulatorLibrary in the project navigator, choose delete and select move to trash. Then link the HeftLibrary to the project as normally.
+                    </p>
+
+                    <p>There are a couple of frameworks that need to be linked as well for the library to function correctly, namely the ExternalAccessory and Security frameworks that are included in the iOS SDK.</p>
+
+                    <p class="alert alert-success">To add the frameworks select your project in the project navigator and the settings view should appear in the main view. Select the Summary tab for the myPosApp target and scroll down till you find the Linked Frameworks and Libraries section. Press the + at the bottom of the section and add ExternalAccessory.framework and Security.framework to the list.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                        Registering an external device
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>The card reader protocol needs to be registered in the apps .plist file. In the project navigator locate the supporting files folder and open myPosApp.plist. <br> <br>Add the key <code>"Supported external accessory protocols"</code>. Do so by right clicking the view and choose add row and locate the key name in the list. After you've added the key enter the following string as a value for item 0: <code>com.datecs.pinpad</code></p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                        Build settings
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFour" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>The last thing you need to do before you can start doing any actual development work is to add the <code>-lc++</code> flag to your build settings. The <code>-lc++</code> flag tells the linker to expect c++ code in any of the linked files. To add the flag select the Build Settings tab in the project settings view for the myPosApp target. Scroll down till you find the Linking section and look for the Other Linker Flags setting, double click where you'd enter the value and enter the text <code>-lc++</code>.</p>
+
+                    <p>Now the project should be configured and you can start developing.</p>
+                </div>
+            </div>
+        </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                    Initialize HeftManager
+                </a>
+            </h4>
+        </div>
+        <div id="collapseFive" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>We are going to keep this as simple as possible. The app will discover a card reader, connect to it and immediately do a sale. <br><br> First lets just initialize the <code>HeftManager</code> and see if everything builds correctly.</p>
+
+                <p>Open up the <code>ViewController.h</code> file and import the interface and tell the ViewController it needs to implement the <code>HeftStatusReportDelegate</code> and <code>HeftDiscoveryDelegate</code> protocols. The file should look something like this after you've edited it:</p>
+<pre><code class="objectivec">
+    #import &lt;UIKit/UIKit.h&gt;
+    #import "HeftClient.h"
+    #import "HeftManager.h"
+    #import "HeftStatusReportPublic.h"
+
+    @interface ViewController : UIViewController &lt;HeftDiscoveryDelegate, HeftStatusReportDelegate&gt;
+
+    @end
+</code></pre>
+                Now open the <code>ViewController.m</code> file and in the <code>viewDidLoad</code> method add the lines
+
+
+<pre><code class="objectivec">HeftManager* manager = [HeftManager sharedManager];
+    manager.delegate = self;
+    [manager resetDevices]; // Clean out device list
+</code></pre>
+
+                <p class="alert alert-info">This starts the manager and makes it's shared manager accessible later on.  The heft manager is used for discovering devices and creating a <code>HeftClient</code> with a connection to selected device. We also clean out the device list because we are using the simulator, which only shows up one device and we'd like to connect to it as soon as it's discovered,</p>
+
+                <p>Build your project. It should build successfully but you'll get compiler warnings about incomplete implementations because you have not implemented the required methods yet. So lets add them. (Remember we are just doing the bare minimum to gain an understanding of the library, so we'll just implement as needed).</p>
+
+                <p>The methods that we are going to work later on are: <code>didConnect</code>, <code>didFindAccessoryDevice</code>, <code>responseStatus</code>, <code>responseScannerEvent</code>, <code>responseEnableScanner</code> and <code>responseFinanceStatus</code>. For now just log that the methods were called by adding <code>NSLog(@"nameofmethod");</code> to every method.</p>
+
+                Now when you should get a clean build of your app.
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSix">
+                    Connect to device and create a HeftClient
+                </a>
+            </h4>
+        </div>
+        <div id="collapseSix" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p class="alert alert-info">Lets use the fact that only one device is found when using the simulator and connect to the first (and only) device the library finds. We'll do this in the <code>didFindAccessoryDevice</code> method. (Normally the didFindAccessoryDevice would be used to add the devices to a list where the user could choose one and connect to. But we'll do it this way for simplicity.)</p>
+
+                First add a <code>heftClient</code> property to the <code>ViewController</code> interface and call it <code>heftClient</code>. This will be the client we'll use to make transactions.
+
+<pre><code class="objectivec">#import &lt;UIKit/UIKit.h&gt;
+    #import "HeftClient.h"
+    #import "HeftManager.h"
+    #import "HeftStatusReportPublic.h"
+
+
+    @interface ViewController : UIViewController &lt;HeftDiscoveryDelegate, HeftStatusReportDelegate&gt;{
+
+    }
+    @property(nonatomic, strong) id&lt;HeftClient&gt; heftClient;
+    @end
+
+</code></pre>
+                <p>Also add an @synthesize for the heftClient in ViewController.m</p>
+<pre><code class="objectivec">#import "ViewController.h"
+    @interface ViewController ()
+
+    @end
+
+    @implementation ViewController
+
+    @synthesize heftClient;
+
+    - (void)viewDidLoad{
+    [super viewDidLoad];
+    HeftManager* manager = [HeftManager sharedManager];
+    manager.delegate = self;
+    [manager resetDevices]; // Clean out device list
+    }
+
+    //...
+</code></pre>
+
+                <p>Next we'll create the client when a device is discovered. We'll "fetch" a heftClient from the heft manager by using the method clientForDevice and passing to it values such as the shared secret.</p>
+
+
+                <p class="alert alert-success">The shared secret is a hex code known only by the integrator and handpoint. In this example we'll use a special code for development, which is the hex value of the numbers from 01 to 32. The shared secret is passed as a NSData object to the HeftClient.</p>
+                <p>In the didFindAccessoryDevice method, add the following code:</p>
+<pre><code class="objectivec">- (void)didFindAccessoryDevice:(HeftRemoteDevice*)newDevice{
+    NSLog(@"didFindAccessoryDevice");
+
+    // Declare the shared secret in hex numbers.
+    uint8_t ss[32] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x30, 0x31, 0x32};
+
+    heftClient = nil;
+    [[HeftManager sharedManager] clientForDevice:newDevice sharedSecret:[[NSData alloc] initWithBytes:ss length:sizeof(ss)] delegate:self];
+    }
+</code></pre>
+                <p>If the heftClient connected successfully the didConnect delegate is called. In didConnect we get an instance of the heftClient witch we'll attach to the heftClient property for future reference.</p>
+
+<pre><code class="objectivec">- (void)didConnect:(id&lt;HeftClient&gt;)client{
+    NSLog(@"didConnect");
+    heftClient = client;
+    }
+</code></pre>
+                <p>Now you've created a HeftClient and we can access it's methods through the heftClient property.</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">
+                    Initiate a Sale operation
+                </a>
+            </h4>
+        </div>
+        <div id="collapseSeven" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>Since this is a very simple app with no UI components we'll do one sale, and we do it when we get a successful connection to the HeftClient. Remember the didConnect method is called when the client connects successfully so in this case we'll do the one sale there.</p>
+<pre><code class="objectivec">- (void)didConnect:(id&lt;HeftClient&gt;)client{
+    NSLog(@"didConnect");
+    heftClient = client;
+    // Do one sale
+    [heftClient saleWithAmount:100 currency:@"GBP" cardholder:YES];
+    }</code></pre>
+                <p>You can play with the amount. Since we are using the simulator different amounts yield different responses. (See the "Simulator" section for details). Remember that the amount is in the lowest decimal of the selected currency, f.ex 1000 in GBP is 10 pounds (1000 pence).</p>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseEight">
+                    Responding to events
+                </a>
+            </h4>
+        </div>
+        <div id="collapseEight" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>When a transaction has been initiated (f.ex saleWithAmount) the HeftClient calls responseStatus during the process and responceFinanceStatus when the process has finished. Relevant info objects are passed to the methods. We will only write the contents of the objects to the log output. Since we are using the simulator the data of the info objects does not represent fully the data that would be passed if we were using a real device.</p>
+
+                <p>We'll add a couple of lines to the responseStatus and responseFinanceStatus methods in the ViewController.m file.</p>
+
+<pre><code class="objectivec">- (void)responseStatus:(id&lt;ResponseInfo&gt;)info{
+    NSLog(@"responseStatus:");
+    NSLog(info.status);
+    NSLog(info.xml.description);
+    }
+
+    - (void)responseFinanceStatus:(id&lt;FinanceResponseInfo&gt;)info{
+    NSLog(@"responseFinanceStatus:");
+    NSLog(info.status);
+    NSLog(info.customerReceipt);
+    NSLog(info.xml.description);
+    }</code></pre>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<p>Going through the steps above should give you a small app that performs one sale. This guide is only a brief introduction to the functionality of the heft library and we urge you to familiarize yourself with the interface and it's documentation before you start any development work.</p>
+<br>
+</div>
+</div>

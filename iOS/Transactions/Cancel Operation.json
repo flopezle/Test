@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Cancel operation",
+        "name": "cancel",
+        "version": "2.2.2",
+        "description": "This method attempts to cancel the current operation on device. Note that operations cannot be cancelled at certain points in the transaction process.",
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "Invoked to inform when an error response happens."
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    },                    {
+                        "name": "responseEnableScanner",
+                        "description": "Invoked when scanner is disabled"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//cancel\n//Cancels/stops the current financial operation or scanner operation. \n-(IBAction)cancel //Cancel button\n{\n\t[heftClient cancel];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

@@ -1,0 +1,25 @@
+[
+    {
+        "title": "didLostAccessoryDevice",
+        "name": "didLostAccessoryDevice",
+        "version": "2.2.2",
+        "description": "Notifies that accessory device was disconnected. ",
+        "parameters": [
+            {
+                "name": "oldDevice",
+                "type": "HeftRemoteDevice",
+                "validation": "Required",
+                "notes": "An object containing a reference to the accessory device"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//didLostAccessoryDevice\n//Delegate that notifies that accessory device was disconnected\n- (void)didLostAccessoryDevice:(HeftRemoteDevice*)oldDevice\n{\n\tNSLog(@\"Device disconnected\");\n\t//Remove device from devices array\n\t[heftManager.devicesCopy removeObject:oldDevice];\n\t//Do some cleanup after disconnecting if necessary \n\t\n} \n",
+            "language": "objectivec"
+        }
+    }
+]

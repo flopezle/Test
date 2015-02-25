@@ -1,0 +1,59 @@
+[   {
+    "title": "FinanceResponseInfo",
+    "name": "FinanceResponseInfo",
+    "version": "2.2.2",
+    "description": "A FinanceResponseInfo is passed to the responseFinanceStatus delegate at the end of transaction. It contains all necessary information needed about the relevant transaction. FinanceResponseInfo inherits from ResponseInfo so it includes the status string and xml dictionary in addition to authorisedAmount, transactionId and the html formatted string customerReceipt. ",
+    "properties": [
+        {
+            "name": "statusCode",
+            "type": "int",
+            "description": "A numerical representation of the status.",
+            "accessorType": "get"
+        },
+        {
+            "name": "status",
+            "type": "Status as NSString",
+            "description": "Financial transaction status message.",
+            "accessorType": "get"
+        },
+        {
+            "name": "xml",
+            "type": "XML as NSDictionary",
+            "description": " Feedback with xml details about transaction from the card reader.",
+            "accessorType": "get"
+        },
+        {
+            "name": "authorisedAmount",
+            "type": "NSInteger",
+            "description": "In the smallest unit for the given CurrencyCode - for the transaction. ISO 4217 defines number of digits in fractional part of currency for every currency code. Example 1000 in the case where CurrencyCode is \"0826\" (GBP) the amount would be 10.00 pounds or 1000 pense.",
+            "accessorType": "get"
+        },
+        {
+            "name": "transactionId",
+            "type": "NSString",
+            "description": "The id of current transaction.",
+            "accessorType": "get"
+        },
+        {
+            "name": "customerReceipt",
+            "type": "NSString",
+            "description": "Customer receipt of transaction from MPED in html format.",
+            "accessorType": "get"
+        },
+        {
+            "name": "merchantReceipt",
+            "type": "NSString",
+            "description": "Merchant receipt of transaction from MPED in html format.",
+            "accessorType": "get"
+        }
+    ],
+    "descriptionLists": [
+
+    ],
+    "order": "7",
+    "type": "object",
+    "example": {
+        "code": "",
+        "language": "objectivec"
+    }
+}   ]

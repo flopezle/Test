@@ -1,0 +1,28 @@
+[
+    {
+        "title": "Fetch logs",
+        "name": "logGetInfo",
+        "version": "2.2.2",
+        "description": "Retrieves the logging info. Returns them in the responseLogInfo event." ,
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "This method always returns YES"
+                    }
+                ]
+            }
+        ],
+        "order": "6",
+        "type": "method",
+        "example": {
+            "code": "//logGetInfo\n//Retrieves the logging info.\n-(void)getLogsFromCardReader\n{\n\t[heftClient logGetInfo];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

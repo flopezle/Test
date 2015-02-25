@@ -1,0 +1,20 @@
+{
+    "title": "iOS",
+    "description": "Handpoint iOS Sdk",
+    "order": [
+        "Introduction",
+        "Getting started",
+        "Simulator",
+        "Transactions",
+        "Device management",
+        "Events",
+        "Objects",
+        "Process details"
+    ],
+    "specialSections": [
+        "Introduction",
+        "Getting started",
+        "Simulator",
+        "Process details"
+    ]
+}

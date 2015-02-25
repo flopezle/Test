@@ -1,0 +1,28 @@
+[
+    {
+        "title": "Reset logs",
+        "name": "logReset",
+        "version": "2.2.2",
+        "description": "Clears the logging information stored so far." ,
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "This method always returns YES"
+                    }
+                ]
+            }
+        ],
+        "order": "7",
+        "type": "method",
+        "example": {
+            "code": "//logReset\n//Clears the logging information stored so far\n-(void)clearLogs\n{\n\t[heftClient logReset];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

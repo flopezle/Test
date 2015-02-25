@@ -1,0 +1,41 @@
+[   {
+    "title": "LogInfo",
+    "name": "LogInfo",
+    "version": "2.2.2",
+    "description": "A LogInfo object is passed to the responseLogInfo delegate when logs have been downloaded from the card reader.",
+    "properties": [
+        {
+            "name": "statusCode",
+            "type": "int",
+            "description": "A numerical representation of the status.",
+            "accessorType": "get"
+        },
+        {
+            "name": "status",
+            "type": "Status as NSString",
+            "description": "Financial transaction status message.",
+            "accessorType": "get"
+        },
+        {
+            "name": "xml",
+            "type": "XML as NSDictionary",
+            "description": " Feedback with xml details about transaction from the card reader.",
+            "accessorType": "get"
+        },
+        {
+            "name": "log",
+            "type": "NSString",
+            "description": "String containing the logging information.",
+            "accessorType": "get"
+        }
+    ],
+    "descriptionLists": [
+
+    ],
+    "order": "10",
+    "type": "object",
+    "example": {
+        "code": "",
+        "language": "objectivec"
+    }
+}   ]

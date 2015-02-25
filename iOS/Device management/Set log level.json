@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Set log level",
+        "name": "logSetLevel",
+        "version": "2.2.2",
+        "description": "Sets the log level of the card reader. There are for levels of logging for the device: none, info, full, debug. Setting the log level means that relevant information concerning the application operation will be stored." ,
+        "parameters": [
+            {
+                "name": "level",
+                "type": "eLogLevel",
+                "validation": "Required",
+                "notes": "eLogLevel available types: eLogNone, eLogInfo, eLogFull, eLogDebug"
+            }
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "This method always returns YES"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//logSetLevel:\n//Sets the log level of the card reader.\n-(void)disableCardReaderLogs\n{\n\t[heftClient logSetLevel:eLogNone];\n}\n-(void)enableCardReaderDebugLogs\n{\n\t[heftClient logSetLevel:eLogDebug];\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

@@ -1,0 +1,19 @@
+[
+    {
+        "title": "cancelSignature",
+        "name": "cancelSignature",
+        "version": "2.2.2",
+        "description": "Called if the signature request times out. If the card reader does not receive an approval for the signature within a certain timeframe (45 sec) it cancels the transaction and sends a notification to the app. ",
+        "parameters": [
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "8",
+        "type": "method",
+        "example": {
+            "code": "//cancelSignature\n//Called if the signature request times out.\n-(void)cancelSignature\n{\n\tNSLog(@\"Signature request timed out\");\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

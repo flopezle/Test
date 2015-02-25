@@ -1,0 +1,20 @@
+[
+    {
+        "title": "eLogLevel",
+        "name": "eLogLevel",
+        "type": "enum",
+        "version": "2.2.2",
+        "description": "An enum describing the different levels of logging used in the hapi and used in the device.",
+        "values": [
+            "eLogNone",
+            "eLogInfo",
+            "eLogFull",
+            "eLogDebug"
+        ],
+        "order": "11",
+        "example": {
+            "code": "",
+            "language": "objectivec"
+        }
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "didDiscoverFinished",
+        "name": "didDiscoverFinished",
+        "version": "2.2.2",
+        "description": "When the modal window from startDiscovery is closed then this event is called.",
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "1",
+        "type": "method",
+        "example": {
+            "code": "//didDiscoverFinished\n// This function gets called when discovery is finished\n- (void)didDiscoverFinished;\n{\n\tNSLog(@\"Discover finished\");\n\t//Stop search activity indicator or other desired functions \n}\n",
+            "language": "objectivec"
+        }
+    }
+]

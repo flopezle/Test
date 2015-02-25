@@ -1,0 +1,64 @@
+[
+    {
+        "title": "HeftStatusReportDelegate",
+        "name": "HeftStatusReportDelegate",
+        "version": "2.2.2",
+        "description": "Notifications sent by the SDK on various events - connected to device, request signature, response on error  etc.",
+        "methods": [
+
+        ],
+        "properties": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Methods",
+                "elements": [
+                    {
+                        "name": "didConnect",
+                        "description": "- (void)didConnect:(id&lt;HeftClient&gt;)client;"
+                    },
+                    {
+                        "name": "responseStatus",
+                        "description": "- (void)responseStatus:(id&lt;ResponseInfo&gt;)info;"
+                    },
+                    {
+                        "name": "responseScannerEvent",
+                        "description": "- (void)responseScannerEvent:(id&lt;ScannerEventResponseInfo&gt;)info;"
+                    },
+                    {
+                        "name": "responseEnableScanner",
+                        "description": "- (void)responseEnableScanner:(id&lt;EnableScannerResponseInfo&gt;)info;"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "- (void)responseError:(id&lt;ResponseInfo&gt;)info;"
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "- (void)responseFinanceStatus:(id&lt;FinanceResponseInfo&gt;)info;"
+                    },
+                    {
+                        "name": "responseLogInfo",
+                        "description": "- (void)responseLogInfo:(id&lt;LogInfo&gt;)info;"
+                    },
+                    {
+                        "name": "requestSignature",
+                        "description": "- (void)requestSignature:(NSString*)receipt;"
+                    },
+                    {
+                        "name": "cancelSignature",
+                        "description": "- (void)cancelSignature;"
+                    }
+                ]
+            }
+
+    ],
+        "order": "5",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "objectivec"
+        }
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Accept signature",
+        "name": "acceptSignature",
+        "version": "2.2.2",
+        "description": "A signatureRequired event is invoked during transaction when signature verification is needed (f.ex when payment is done with a magstripe card). The merchant is required to ask the cardholder for signature and approve (or disapprove) the signature. signatureRequired tells the card reader if the signature was approved by passing YES. To disapprove then NO is passed.",
+        "parameters": [
+            {
+                "name": "flag",
+                "type": "Boolean",
+                "validation": "Required",
+                "notes": "YES if signature is valid, NO otherwise"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "Invoked to inform when an error response happens."
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//acceptSignature:\n//Inform the card reader if signature is valid or not\n-(IBAction)accept\n{\n\t[heftClient acceptSignature:YES];\n}\n-(IBAction)decline\n{\n\t[heftClient acceptSignature:NO];\n}\n",
+            "language": "objectivec"
+        }
+
+    }
+]

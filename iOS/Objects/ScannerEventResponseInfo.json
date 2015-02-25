@@ -1,0 +1,41 @@
+[   {
+    "title": "ScannerEventResponseInfo",
+    "name": "ScannerEventResponseInfo",
+    "version": "2.2.2",
+    "description": "A ScannerEventResponseInfo is passed to the responseScannerEvent delegate during scanner mode when a scan is detected. It contains all necessary information needed about the relevant operation. ScannerEventResponseInfo inherits from ResponseInfo so it includes the status string and xml dictionary in addition to scanCode string. ",
+    "properties": [
+        {
+            "name": "statusCode",
+            "type": "int",
+            "description": "A numerical representation of the status.",
+            "accessorType": "get"
+        },
+        {
+            "name": "status",
+            "type": "Status as NSString",
+            "description": "Financial transaction status message.",
+            "accessorType": "get"
+        },
+        {
+            "name": "xml",
+            "type": "XML as NSDictionary",
+            "description": " Feedback with xml details about transaction from the card reader.",
+            "accessorType": "get"
+        },
+        {
+            "name": "scanCode",
+            "type": "NSString",
+            "description": "The code that was scanned.",
+            "accessorType": "get"
+        }
+    ],
+    "descriptionLists": [
+
+    ],
+    "order": "8",
+    "type": "object",
+    "example": {
+        "code": "",
+        "language": "objectivec"
+    }
+}   ]

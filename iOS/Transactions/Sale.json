@@ -1,0 +1,78 @@
+[
+    {
+        "title": "Sale",
+        "name": "saleWithAmount",
+        "version": "2.2.2",
+        "description": "A sale initiates a payment operation to the card reader." ,
+        "parameters": [
+            {
+                "name": "amount",
+                "type": "NSInteger",
+                "validation": "Required",
+                "notes": "Amount of funds to charge - in the minor unit of currency (f.ex. 1000 is 10.00 GBP)"
+            },
+            {
+                "name": "currency",
+                "type": "NSString*",
+                "validation": "Required",
+                "notes": "3 letter currency code in accordance to ISO4217"
+            },
+            {
+                "name": "present",
+                "type": "BOOL",
+                "validation": "Required",
+                "notes": "YES if cardholder is present - NO otherwise"
+            },
+            {
+                "name": "reference",
+                "type": "NSString*",
+                "validation": "Optional",
+                "notes": "string for customer reference"
+            },
+            {
+                "name": "months",
+                "type": "BOOL",
+                "validation": "Optional",
+                "notes": "string for budget functionality"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "Invoked to inform when an error response happens."
+                    },
+                    {
+                        "name": "requestSignature",
+                        "description": "Invoked if card verification requires signature."
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "YES if operation starts successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//saleWithAmount:currency:cardholder:\n//Initiates a sale transaction.\n-(IBAction)doSale\n{\n\tif(reference != nil) //checks if a reference number should be assigned to the transaction\n\t{\n\t\tif(months &gt; 0) //checks if the budget functionality should also be used\n\t\t{\n\t\t\t[heftClient saleWithAmount:amount\n\t\t\t\t\t\t\t\t\tcurrency:selectedCurrency\n\t\t\t\t\t\t\t\t\tcardholder:isPresent\n\t\t\t\t\t\t\t\t\treference:reference divideBy:months];\n\t\t}\n\t\telse\n\t\t{\n\t\t\t[heftClient saleWithAmount:amount\n\t\t\t\t\t\t\t\t\tcurrency:selectedCurrency\n\t\t\t\t\t\t\t\t\tcardholder:isPresent\n\t\t\t\t\t\t\t\t\treference:reference];\n\t\t}\n\t}\n\telse //Just a simple transaction\n\t{\n\t\t[heftClient saleWithAmount:amount\n\t\t\t\t\t\t\t\t\tcurrency:selectedCurrency\n\t\t\t\t\t\t\t\t\tcardholder:isPresent];\n\t} \n}\n",
+            "language": "objectivec"
+        }
+    }
+]

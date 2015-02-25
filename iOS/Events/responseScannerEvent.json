@@ -1,0 +1,25 @@
+[
+    {
+        "title": "responseScannerEvent",
+        "name": "responseScannerEvent",
+        "version": "2.2.2",
+        "description": "Called to inform that a scan has been performed, several calls can be expected.",
+        "parameters": [
+            {
+                "name": "info",
+                "type": "ScannerEventResponseInfo",
+                "validation": "Required",
+                "notes": " The info object contains scanCode, status  and a dictionary (xml)."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "9",
+        "type": "method",
+        "example": {
+            "code": "//responseScannerEvent:\n//Called to inform that a scan has been performed\n-(void)responseScannerEvent:(id&lt;ScannerEventResponseInfo&gt;)info\n{\n\tNSLog(info.scanCode); //barcode scanned\n\tNSLog(info.xml.description);\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

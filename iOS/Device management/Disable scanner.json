@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Disable scanner",
+        "name": "disableScanner",
+        "version": "2.3.0",
+        "description": "Disables the scanner if possible" ,
+        "parameters": [],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseScannerDisabled:",
+                        "description": "Called to inform that a scan has been performed, several calls can be expected. Several calls to this method happen after a scan action has been performed to inform about scan information operation. The info object contains scanCode, status  and a dictionary (xml). "
+                    }
+                ]
+            }
+        ],
+        "order": "9",
+        "type": "method",
+        "example": {
+            "code": "//disableScanner\n//Disable the scanner\n\t-(IBAction)disableScanner\n{\n[heftClient disableScanner];\n}",
+            "language": "objectivec"
+        }
+    }
+]

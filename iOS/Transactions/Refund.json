@@ -1,0 +1,68 @@
+[
+    {
+        "title": "Refund",
+        "name": "refundWithAmount",
+        "version": "2.2.2",
+        "description": "A refund initiates a refund operation to the card reader. This operation moves funds from your account to the cardholders credit card.",
+        "parameters": [
+            {
+                "name": "amount",
+                "type": "NSInteger",
+                "validation": "Required",
+                "notes": "Amount of funds to charge - in the minor unit of currency (f.ex. 1000 is 10.00 GBP)"
+            },
+            {
+                "name": "currency",
+                "type": "NSString*",
+                "validation": "Required",
+                "notes": "3 letter currency code in accordance to ISO4217"
+            },
+            {
+                "name": "present",
+                "type": "BOOL",
+                "validation": "Required",
+                "notes": "YES if cardholder is present - NO otherwise"
+            },
+            {
+                "name": "reference",
+                "type": "NSString*",
+                "validation": "Optional",
+                "notes": "string for customer reference"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "responseStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "responseError",
+                        "description": "Invoked to inform when an error response happens."
+                    },
+                    {
+                        "name": "responseFinanceStatus",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "YES if operation starts successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "2",
+        "type": "method",
+        "example": {
+            "code": "//refundWithAmount:currency:cardholder:\n//Initiates a refund transaction\n-(IBAction)doRefund\n{\n\tif(reference != nil)\n\t{\n\t\t[heftClient refundWithAmount:amount\n\t\t\t\t\t\t\t\t\tcurrency:selectedCurrency\n\t\t\t\t\t\t\t\t\tcardholder:isPresent\n\t\t\t\t\t\t\t\t\treference:reference];\n\t}\n\telse\n\t{\n\t\t[heftClient refundWithAmount:amount\n\t\t\t\t\t\t\t\t\tcurrency:selectedCurrency\n\t\t\t\t\t\t\t\t\tcardholder:isPresent];\n\t}\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

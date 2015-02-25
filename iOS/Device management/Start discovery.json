@@ -1,0 +1,25 @@
+[
+    {
+        "title": "Start Discovery",
+        "name": "startDiscovery",
+        "version": "2.2.2",
+        "description": "Displays a list of available accessory devices in a modal window." ,
+        "parameters": [
+            {
+                "name": "fDiscoverAllDevices",
+                "type": "Boolean",
+                "validation": "Required",
+                "notes": "Boolean. NO if library should only discover supported devices, YES otherwise"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//startDiscovery\n//Starts the BT discovery process\n-(void)startDiscovery:(BOOL)discoverAllDevices; \n{\n\t[heftManager startDiscovery:discoverAllDevices];\n\t//Start search activity indicator or other desired functions\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

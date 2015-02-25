@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Reset Devices",
+        "name": "resetDevices",
+        "version": "2.2.2",
+        "description": "Resets the devices array, clears all references to discovered devices" ,
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "11",
+        "type": "method",
+        "example": {
+            "code": "//resetDevices\n//Resets the devices array, clears all references to discovered devices\n-(void)clearDevices;\n{\n\t[sharedManager resetDevices];\n\t//Array returned by devicesCopy should now be cleared\n}\n",
+            "language": "objectivec"
+        }
+    }
+]

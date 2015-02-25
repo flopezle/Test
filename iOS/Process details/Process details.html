@@ -1,0 +1,566 @@
+<p>The following table contains result codes that can occur in the COMMAND response STATUS field (see section 1.3 above).</p>
+
+<p>In addition the following table contains the text information presented in the <code>&lt;StatusMessage&gt;</code> field that is part of the <code>&lt;FinancialTransactionResponse&gt;</code> Xml response object.</p>
+
+<p>All values are in hex in the following table.</p>
+
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+    <th> Status ID</th>
+    <th> Value</th>
+    <th>  &lt;StatusMessage&gt;  </th>
+    <th> Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td> EFT_SUCCESS</td>
+    <td> 0001</td>
+    <td> One of the following:
+
+        "" (an empty string)
+
+        "AUTH CODE #"
+
+        "REFUND ACCEPTED"
+
+        "REVERSAL ACCEPTED"
+    </td>
+    <td> Operation completed successfully.
+
+        No further actions required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_INVALID_DATA</td>
+    <td> 0002</td>
+    <td> "Invalid data"</td>
+    <td> Invalid COMMAND request object, from the POS App, at the start of an operation.
+
+        Please retry the operation.
+
+        If the issue persists please contact technical support and provide card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_PROCESSING_ERROR</td>
+    <td> 0003</td>
+    <td> "Processing error"</td>
+    <td> An unexpected error occurred during processing.
+
+        Please retry the operation.
+
+        If the issue persists please contact technical support and provide card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_COMMAND_NOT_ALLOWED</td>
+    <td> 0004</td>
+    <td> "Command not allowed"</td>
+    <td> The card reader is currently busy processing another command.
+
+        Please retry the operation once the current operation has completed.
+    </td>
+</tr>
+<tr>
+    <td> EFT_NOT_INITIALISED</td>
+    <td> 0005</td>
+    <td> "Device is not initialized"</td>
+    <td> The current operation can’t be completed because there is a pending software update
+        that must be applied before processing can continue.
+
+        Please retry the operation after the card reader has restarted itself.
+    </td>
+</tr>
+<tr>
+    <td> EFT_CONNECT_TIMEOUT</td>
+    <td> 0006</td>
+    <td> "Connection time out detected"</td>
+    <td> The back end connection timed out during an update.
+
+        Please retry the operation.
+
+        If the issue persists please contact technical support and provide card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_CONNECT_ERROR</td>
+    <td> 0007</td>
+    <td> "Connection error"</td>
+    <td> It was not possible to establish a connection to the back end system during an
+        update operation.
+
+        Please retry the operation.
+
+        If the issue persists please contact technical support and provide card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_SENDING_ERROR</td>
+    <td> 0008</td>
+    <td> "Send error"</td>
+    <td> A failure was detected during communication with the back end system.
+
+        If a SALE or a REFUND transaction was in progress when this occurred then you MUST contact technical
+        support and verify whether the transaction went through or not.
+
+        If you fail to do so then you may be liable for any costs incurred due to any double
+        charges.
+
+        Note: You may be asked to provide the card reader logs.
+
+        Once verified please retry the operation.
+    </td>
+</tr>
+<tr>
+    <td> EFT_RECEIVING_ERROR</td>
+    <td> 0009</td>
+    <td> "Receiving error"</td>
+    <td> A failure was detected during communication with the back end system.
+
+        If a SALE or a REFUND transaction was in progress when this occurred then you MUST contact technical
+        support and verify whether the transaction went through or not.
+
+        If you fail to do so then you may be liable for any costs incurred due to any double
+        charges.
+
+        Note: You may be asked to provide the card reader logs.
+
+        Once verified please retry the operation.
+    </td>
+</tr>
+<tr>
+    <td> EFT_NO_DATA_AVAILABLE</td>
+    <td> 000A</td>
+    <td> "No data available"</td>
+    <td> The POS App is trying to fetch the card reader log file but there is no data stored
+        in the log file.
+
+        If logs are required then please set the log level to an appropriate value and retry the operation.
+    </td>
+</tr>
+<tr>
+
+</tr>
+<tr>
+    <td> EFT_TRANS_NOT_ALLOWED</td>
+    <td> 000B</td>
+    <td> "Transaction not allowed"</td>
+    <td> &lt;Currently not used&gt; </td>
+</tr>
+<tr>
+    <td> EFT_UNSUPPORTED_CURRENCY</td>
+    <td> 000C</td>
+    <td> "Currency not supported"</td>
+    <td> A currency has been selected that the card reader has not been configured for.
+
+        Please select the correct currency and retry the operation.
+
+        Alternatively, please contact technical support and ask for the specific currency to be supported.
+    </td>
+</tr>
+<tr>
+    <td> EFT_NO_HOST_AVAILABLE</td>
+    <td> 000D</td>
+    <td> "No host configuration found"</td>
+    <td> An update was initiated but the card reader could not find any host information for
+        the back end system, even though it otherwise contains valid configuration.
+
+        This is indicative of an invalid &lt;hostBlock&gt; block with in the &lt;HostList&gt; block in this
+        device configuration, which was placed on the card reader during a previous update.
+
+        Please contact technical support and provide card reader logs and ask for a replacement
+        device.
+
+        The card reader will be unable to update itself and must be replaced.
+    </td>
+</tr>
+<tr>
+    <td> EFT_CARD_READER_ERROR</td>
+    <td> 000E</td>
+    <td> "Card reader error"</td>
+    <td> Error detected in the chip reader or the magnetic stripe reader.
+
+        Please retry the operation.
+
+        If the issue persists please contact technical support and provide them with the card reader logs as well
+        as asking for a replacement reader.
+    </td>
+</tr>
+<tr>
+    <td> EFT_CARD_READING_FAILED</td>
+    <td> 000F</td>
+    <td> "Failed to read card data"</td>
+    <td> The card reader could not read any data from the card.
+
+        Please retry the operation.
+
+        If the issue persists the card may be faulty, please try another card.
+
+        If the issue still persists the card reader may require replacement, please contact technical
+        support.
+    </td>
+</tr>
+<tr>
+    <td> EFT_INVALID_CARD</td>
+    <td> 0010</td>
+    <td> "INVALID CARD"</td>
+    <td> The card reader detected invalid card data.
+
+        Please retry the operation.
+
+        If the issue persists the card may be faulty, please try another card.
+
+        If the issue still persists the card reader may require replacement, please contact technical
+        support.
+    </td>
+</tr>
+<tr>
+    <td> EFT_INPUT_TIMEOUT</td>
+    <td> 0011</td>
+    <td> "Timeout waiting for user input"</td>
+    <td> The card reader timed out while waiting for a user action.
+
+        No further actions required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_USER_CANCELLED</td>
+    <td> 0012</td>
+    <td> "TRANSACTION VOID"
+
+        "User cancelled the transaction"
+    </td>
+    <td> The current operation was cancelled by card holder.
+
+        No further actions required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_SHARED_SECRET_INVALID</td>
+    <td> 001D</td>
+    <td> "Shared Secret invalid"</td>
+    <td> The card reader believes that the POS App has an incorrect shared secret.
+
+        No financial operations will be possible (e.g. SALE, REFUND).
+
+        Please type the correct shared secret into the POS App or contact technical support for further
+        assistance.
+    </td>
+</tr>
+<tr>
+    <td> EFT_SHARED_SECRET_AUTH</td>
+    <td> 001E</td>
+    <td> "Authenticating POS"</td>
+    <td> The card reader is about to challenge the POS App for a correct shared secret.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td colspan="4">  &nbsp;
+         REPORT STATUS
+        SPECIFIC
+    </td>
+</tr>
+<tr>
+    <td> EFT_INVALID_SIGNATURE</td>
+    <td> 0013</td>
+    <td> "TRANSACTION VOID"</td>
+    <td> The merchant indicated that the signature provided by the card holder was
+        invalid.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_CARD</td>
+    <td> 0014</td>
+    <td> "Waiting for card"</td>
+    <td> The card reader is waiting for a card to be inserted into the chip reader or for a
+        card to be swiped (only applies to card readers with external MSR).
+
+        Insert or swipe a card to continue with the transaction.
+    </td>
+</tr>
+<tr>
+    <td> EFT_CARD_INSERTED</td>
+    <td> 0015</td>
+    <td> "Card detected"</td>
+    <td> &lt;Currently not used&gt; </td>
+</tr>
+<tr>
+    <td> EFT_APPLICATION_SELECTION</td>
+    <td> 0016</td>
+    <td> "Waiting for application selection"</td>
+    <td> The card reader is waiting for the card holder to select a card application to be
+        used for the transaction.
+
+        The card holder must select an application for use (e.g. VISA, MASTERCARD, etc.) and should then press
+        either the OK button to continue.
+
+        Press the C/Cancel button to abort the transaction.
+    </td>
+</tr>
+<tr>
+    <td> EFT_APPLICATION_CONFIRMATION</td>
+    <td> 0017</td>
+    <td> "Waiting for application confirmation"</td>
+    <td> The card reader is waiting for the card holder to confirm that the displayed card
+        application should be used for the transaction.
+
+        The card holder should press either the OK or the C/Cancel button.
+    </td>
+</tr>
+<tr>
+    <td> EFT_AMOUNT_VALIDATION</td>
+    <td> 0018</td>
+    <td> "Waiting for amount validation"</td>
+    <td> The card reader is waiting for the card holder to confirm that the amount presented
+        is correct.
+
+        The card holder should press either the OK or the C/Cancel button.
+    </td>
+</tr>
+<tr>
+    <td> EFT_PIN_INPUT</td>
+    <td> 0019</td>
+    <td> "Waiting for PIN entry"</td>
+    <td> The card reader is waiting for the card holder to enter his/her PIN.
+
+        The card holder should enter his PIN and then press the OK button to continue.
+
+        For PIN bypass press the OK button without entering any PIN digits (this will trigger signature
+        fallback).
+
+        Press the C/Cancel button to abort the transaction.
+
+        Note: It is not possible to cancel this operation from the POS App.
+    </td>
+</tr>
+<tr>
+    <td> EFT_MANUAL_CARD_INPUT</td>
+    <td> 001A</td>
+    <td> "Waiting for manual card data"</td>
+    <td> &lt;Currently not used&gt; </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_CARD_REMOVAL</td>
+    <td> 001B</td>
+    <td> "Waiting for card removal"</td>
+    <td> A card was detected in the card reader at the start of a transaction, presumably
+        left there from a previous transaction.
+
+        Please remove the card and restart the operation.
+    </td>
+</tr>
+<tr>
+    <td> EFT_TIP_INPUT</td>
+    <td> 001C</td>
+    <td> "Waiting for gratuity"</td>
+    <td> The card reader is waiting for the card holder to enter/confirm tip/gratuity
+        information.
+    </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_SIGNATURE</td>
+    <td> 001F</td>
+    <td> "Waiting for signature"</td>
+    <td> The card reader is waiting for confirmation from the merchant that the card holder
+        signature is valid.
+
+        The merchant should press either the Accepted or Declined/Cancel in the POS App.
+
+        Pressing Cancel or OK on the card reader will not have any effect.
+    </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_HOST_CONNECT</td>
+    <td> 0020</td>
+    <td> "Connecting to host"</td>
+    <td> The card reader is establishing a connection to the back end system.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_HOST_SEND</td>
+    <td> 0021</td>
+    <td> "Sending data to host"</td>
+    <td> The card reader is sending data to the back end system.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_HOST_RECEIVE</td>
+    <td> 0022</td>
+    <td> "Waiting for data from host"</td>
+    <td> The card reader is waiting for data from to the back end system.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_WAITING_HOST_DISCONNECT</td>
+    <td> 0023</td>
+    <td> "Disconnecting from host"</td>
+    <td> The card reader is disconnecting from the back end system.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_PIN_INPUT_COMPLETED</td>
+    <td> 0024</td>
+    <td> "PIN entry completed"</td>
+    <td> PIN entry has been completed.
+
+        No further actions required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_POS_CANCELLED</td>
+    <td> 0025</td>
+    <td> "TRANSACTION VOID"</td>
+    <td> The current operation was cancelled by merchant.
+
+        No further actions required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_REQUEST_INVALID</td>
+    <td> 0026</td>
+    <td> "Request invalid"</td>
+    <td> Card not allowed with this transaction type.</td>
+</tr>
+<tr>
+    <td> EFT_CARD_CANCELLED</td>
+    <td> 0027</td>
+    <td> "TRANSACTION VOID"</td>
+    <td> The chip on the card cancelled the transaction.
+
+        No further actions required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_CARD_BLOCKED</td>
+    <td> 0028</td>
+    <td> "CARD BLOCKED"</td>
+    <td> The card used in the transaction is blocked.
+
+        Please retry the transaction with a non-blocked card.
+    </td>
+</tr>
+<tr>
+    <td> EFT_REQUEST_AUTH_TIMEOUT</td>
+    <td> 0029</td>
+    <td> "Request for authorisation timed out"</td>
+    <td> Indicates that the card reader detected a communication failure between itself and
+        the back end system during the authorization phase.
+
+        Please make sure the phone/pc has an internet connection and then retry the operation.
+
+        If the problem persists then please contact technical support.
+
+        Note: You may be asked to provide the card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_REQUEST_PAYMENT_TIMEOUT</td>
+    <td> 002A</td>
+    <td> "Request for payment timed out"</td>
+    <td> Indicates that the card reader detected a communication failure between itself and
+        the back end system during the payments phase.
+
+        Please make sure the phone/pc has an internet connection and then retry the operation.
+
+        If the problem persists then please contact technical support.
+
+        Note: You may be asked to provide the card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_RESPONSE_AUTH_TIMEOUT</td>
+    <td> 002B</td>
+    <td> "Response to authorisation request timed out"</td>
+    <td> Indicates that the card reader detected a communication failure between itself and
+        the back end system during the authorization phase.
+
+        Please make sure the phone/pc has an internet connection and then retry the operation.
+
+        If the problem persists then please contact technical support.
+
+        Note: You may be asked to provide the card reader logs.
+    </td>
+</tr>
+<tr>
+    <td> EFT_RESPONSE_PAYMENT_TIMEOUT</td>
+    <td> 002C</td>
+    <td> "Response to payment request timed out"</td>
+    <td> Indicates that the card reader detected a communication failure between itself and
+        the back end system during the payments phase.
+
+        You MUST contact technical support and verify whether the transaction went through or not.
+
+        If you fail to do so then you may be liable for any costs incurred due to any double
+        charges.
+         &nbsp;
+
+        Note: You may be asked to provide the card reader logs.
+
+        Once you have verified that the transaction did not go through then please make sure the phone/pc has an
+        internet connection and then retry the operation.
+    </td>
+</tr>
+<tr>
+    <td> EFT_ICC_CARD_SWIPED</td>
+    <td> 002D</td>
+    <td> "Please insert card in chip reader"</td>
+    <td> &lt;Currently not used&gt; </td>
+</tr>
+<tr>
+    <td> EFT_REMOVE_CARD</td>
+    <td> 002E</td>
+    <td> "Remove the card from the reader"</td>
+    <td> &lt;Currently not used&gt; </td>
+</tr>
+<tr>
+    <td> EFT_SCANNER_IS_NOT_SUPPORTED</td>
+    <td> 002F</td>
+    <td> "This device does not have a scanner"</td>
+    <td> Bar-code scanner hardware is not present on this card reader.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_SCANNER_EVENT</td>
+    <td> 0030</td>
+    <td> ""</td>
+    <td> Bar-code data was just read with the bar-code scanner and returned to the POS
+        App.
+
+        No further actions are required.
+    </td>
+</tr>
+<tr>
+    <td> EFT_BATTERY_TOO_LOW</td>
+    <td> 0031</td>
+    <td> "Operation cancelled, the battery is too low. Please charge."</td>
+    <td> An operation was started, but the battery charge level is too low to complete the
+        operation.
+
+        Please recharge the card reader.
+    </td>
+</tr>
+<tr>
+    <td colspan="1"><span>EFT_ACCOUNT_TYPE_SELECTION</span></td>
+    <td colspan="1"><span>0032</span></td>
+    <td colspan="1"><span>"Waiting for account type selection"</span></td>
+    <td colspan="1"><span>The card reader is waiting for the card holder to choose an account type for the transaction (i.e. default, credit, cheque/debit or savings).</span>
+    </td>
+</tr>
+</tbody>
+</table>

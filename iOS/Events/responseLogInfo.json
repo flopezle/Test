@@ -1,0 +1,25 @@
+[
+    {
+        "title": "responseLogInfo",
+        "name": "responseLogInfo",
+        "version": "2.2.2",
+        "description": "Called when logs have been downloaded from the card reader by using the logGetInfo method.",
+        "parameters": [
+            {
+                "name": "info",
+                "type": "LogInfo",
+                "validation": "Required",
+                "notes": "The info object has the string property log which holds the log info in text with carriage returns."
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "11",
+        "type": "method",
+        "example": {
+            "code": "//responseLogInfo:\n//Called when logs have been downloaded from the card reader by using the logGetInfo method.\n-(void)responseLogInfo:(id&lt;LogInfo&gt;)info\n{\n\tNSLog(info.log);\n\t//write to log file\n}\n",
+            "language": "objectivec"
+        }
+    }
+]
