@@ -1,0 +1,96 @@
+[
+    {
+        "title": "Signature result",
+        "name": "SignatureResult",
+        "version": "1.1.7",
+        "description": "A signatureRequest event is invoked during transaction when signature verification is needed (f.ex when payment is done with a magstripe card). The merchant is required to ask the cardholder for signature and approve (or disapprove) the signature. signatureResult tells the card reader if the signature was approved by passing true in the method. To disapprove then false is passed.",
+        "parameters": [
+            {
+                "name": "accepted",
+                "type": "Boolean",
+                "validation": "Required",
+                "notes": "pass true if merchant accepts customer signature"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "currentTransactionStatus",
+                        "description": "Invoked during a transaction, it fetches statuses coming from the card reader (ex : 'waiting for card' or 'waiting for PIN entry')"
+                    },
+                    {
+                        "name": "endOfTransaction",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a SignatureRequest from the SDK.\npublic void SignatureRequired(SignatureRequest signatureRequest, Device device)\n{\n    //If you accept the signature\n    api.SignatureResult(true);\n}",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Signature result",
+        "name": "SignatureResult",
+        "version": "1.0.0",
+        "description": "A signatureRequest event is invoked during transaction when signature verification is needed (f.ex when payment is done with a magstripe card). The merchant is required to ask the cardholder for signature and approve (or disapprove) the signature. signatureResult tells the card reader if the signature was approved by passing true in the method. To disapprove then false is passed.",
+        "parameters": [
+            {
+                "name": "accepted",
+                "type": "Boolean",
+                "validation": "Required",
+                "notes": "pass true if merchant accepts customer signature"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "currentTransactionStatus",
+                        "description": "Invoked during a transaction, it fetches statuses coming from the card reader (ex : 'waiting for card' or 'waiting for PIN entry')"
+                    },
+                    {
+                        "name": "endOfTransaction",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a SignatureRequest from the SDK.\npublic void SignatureRequired(SignatureRequest signatureRequest, Device device)\n{\n    //If you accept the signature\n    api.SignatureResult(true);\n}",
+            "language": "cs"
+        }
+    }
+]

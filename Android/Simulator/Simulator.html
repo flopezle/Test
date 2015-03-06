@@ -1,0 +1,24 @@
+
+        <p>To start building your application and test simple changes without having to use a card reader you can use the built in simulator.</p>
+<h3>Using the simulator</h3>
+<p>If you follow the <strong>Getting started guide for the hapi SDK</strong> there is a method used there which tells the SDK which device to use,
+        <pre><code class="java">hapi.useDevice(new Device("Name", "Port", "Address", ConnectionMethod.****))</code></pre></p>
+<p>Simply set the ConnectionMethod to Simulator, i.e. ConnectionMethod.Simulator. The SDK does the rest. You don't need to search for devices when using the simulator.
+        <pre><code class="java">hapi.useDevice(new Device("Name", "Port", "Address", ConnectionMethod.Simulator))</code></pre></p>
+<h3>Controlling responses</h3>
+<p>The simulator mimics the card reader as much as possible regarding information flow from the hapi interface to your application. E.g. it will return all the transaction statuses, transaction results and receipts.
+    Results are controlled by the 3rd and 4th numbers from the right in the amount parameter.</p>
+        <p>The 3rd number from right sets desired financial status, <em>Authorized</em> or <em>Declined</em>. Default status is <em>Authorized</em>.</br>
+            The 4th number from right sets desired verification method, <em>Signature</em> or <em>PIN</em>. Default method is <em>Signature</em>.</p>
+        <p><strong>Values</strong></p>
+
+        <p>X 00 XX = Signature authorized</br>
+            X 01 XX = Signature declined</br>
+            X 10 XX = Pin authorized</br>
+            X 11 XX = Pin declined</p>
+
+<p>You can get different responses from the simulator by setting different values for the amount parameters in transactions, e.g. for Sale function:</p>
+<p><pre><code class="java">hapi.Sale(X10XX, Currency.GBP); // amount = X 10 XX - where X represents an integer [0;9]</code></pre></p>
+<p>Replacing the 'X's with numbers then the example will result in a successful transaction where the verification method of the transaction was done through a correct PIN input.</p>
+        </br>
+        </br>

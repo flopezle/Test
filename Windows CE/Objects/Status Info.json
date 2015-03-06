@@ -1,0 +1,46 @@
+[
+    {
+        "title": "Status Info",
+        "name": "statusInfo",
+        "version": "1.0.0",
+        "description": "A class containing information about the status of the transaction.",
+        "methods": [
+
+        ],
+        "properties": [
+            {
+                "name": "CancelAllowed",
+                "type": "bool",
+                "description": "A <code>bool</code> representing if the card reader will accept a cancel request.",
+                "accessorType": "get"
+            },
+            {
+                "name": "status",
+                "type": "Status",
+                "description": "A <code>Status</code> enum representing the status of the transaction.",
+                "accessorType": "get"
+            },
+            {
+                "name": "message",
+                "type": "string",
+                "description": "A <code>String</code> containing the status message of the transaction.",
+                "accessorType": "get"
+            },
+            {
+                "name": "DeviceStatus",
+                "type": "DeviceStatus",
+                "description": "A <code>DeviceStatus</code> object containing information about the device.",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "6",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

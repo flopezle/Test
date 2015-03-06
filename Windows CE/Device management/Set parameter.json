@@ -1,0 +1,100 @@
+[
+    {
+        "title": "Set parameter",
+        "name": "setParameter",
+        "version": "1.1.7",
+        "description": "Changes values of certain parameters on the card reader.",
+        "parameters": [
+            {
+                "name": "param",
+                "type": "DeviceParameter",
+                "validation": "Required",
+                "notes": "The name of the parameter to change"
+            },
+            {
+                "name": "value",
+                "type": "String",
+                "validation": "Required",
+                "notes": "New value of the parameter"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "No events are invoked."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//Changes the bluetooth name of card reader\napi.SetParameter(DeviceParameter.BluetoothName, \"OrangeCardReader\");",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Set parameter",
+        "name": "setParameter",
+        "version": "1.0.0",
+        "description": "Changes values of certain parameters on the card reader.",
+        "parameters": [
+            {
+                "name": "param",
+                "type": "DeviceParameter",
+                "validation": "Required",
+                "notes": "The name of the parameter to change"
+            },
+            {
+                "name": "value",
+                "type": "String",
+                "validation": "Required",
+                "notes": "New value of the parameter"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "No events are invoked."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//Changes the bluetooth name of card reader\napi.SetParameter(DeviceParameter.BluetoothName, \"OrangeCardReader\");",
+            "language": "cs"
+        }
+    }
+]

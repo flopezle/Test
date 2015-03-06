@@ -1,0 +1,124 @@
+[
+    {
+        "title": "Device Status",
+        "name": "DeviceStatus",
+        "version": "1.1.2",
+        "description": "A class that holds the device status.",
+        "properties": [
+            {
+                "name": "SerialNumber",
+                "type": "String",
+                "description": "Gets the serial number of the device",
+                "accessorType": "get"
+            },
+            {
+                "name": "BatteryStatus",
+                "type": "String",
+                "description": "Gets the battery status in percentages of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "BatterymV",
+                "type": "String",
+                "description": "Gets the battery milli volts of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "BatteryCharging",
+                "type": "String",
+                "description": "Gets the battery charging status of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "ExternalPower",
+                "type": "String",
+                "description": "Gets the status of an external power of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "ApplicationName",
+                "type": "String",
+                "description": "Gets the application name used on a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "ApplicationVersion",
+                "type": "String",
+                "description": "Gets the application version number used on a device",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "3",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Device Status",
+        "name": "DeviceStatus",
+        "version": "1.0.0",
+        "deprecated": "1.1.2",
+        "description": "A class that holds the device status.",
+        "methods": [
+
+        ],
+        "properties": [
+            {
+                "name": "SerialNumber",
+                "type": "String",
+                "description": "Gets the serial number of the device",
+                "accessorType": "get"
+            },
+            {
+                "name": "BatteryStatus",
+                "type": "String",
+                "description": "Gets the battery status in percentages of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "BatterymV",
+                "type": "String",
+                "description": "Gets the battery milli volts of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "BatteryCharging",
+                "type": "String",
+                "description": "Gets the battery charging status of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "ExternalPower",
+                "type": "String",
+                "description": "Gets the status of an external power of a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "ApplicationName",
+                "type": "String",
+                "description": "Gets the application name used on a device",
+                "accessorType": "get"
+            },
+            {
+                "name": "ApplicationVersion",
+                "type": "String",
+                "description": "Gets the application version number used on a device",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "3",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

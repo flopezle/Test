@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Signature required",
+        "name": "SignatureRequired",
+        "version": "1.0.0",
+        "description": "signatureRequired event gets called when a card requires a signature instead of PIN entry and has two parameters, request and device.",
+        "parameters": [
+            {
+                "name": "request",
+                "type": "SignatureRequest",
+                "validation": "Required",
+                "notes": "Holds the signature request"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "AddRequiredEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve signature information."
+                    }
+                ]
+            }
+        ],
+        "order": "1",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a SignatureRequest from the SDK.\npublic void SignatureRequired(SignatureRequest signatureRequest, Device device)\n{\n    //You might want to print out the receipt or ask the customer to sign the receipt on your device\n    DisplayReceiptInUI(signatureRequest.MerchantReceipt)\n    //If you accept the signature\n    api.SignatureResult(true);\n}\n",
+            "language": "cs"
+        }
+    }
+]

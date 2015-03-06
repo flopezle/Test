@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Optional Transaction Parameters",
+        "name": "OptionalParameters",
+        "version": "1.0.0",
+        "description": "A class containing optional transaction parameters now supported by the device.",
+        "methods": [
+
+        ],
+        "properties": [
+            {
+                "name": "Budget",
+                "type": "String",
+                "description": "<strong>Budget is only available for sale transactions.<br></strong> A <code>String</code> representing the key for a budget number.<p>A budget number can be used to split up an amout over a period of months. The value has to be a <code>String</code> of 2 digits representing the number of months to split the transaction to. Example: \"03\" or \"24\"</p>",
+                "accessorType": "static"
+            },
+            {
+                "name": "CustomerReference",
+                "type": "String",
+                "description": "<strong>CustomerReference is available for all transactions.<br></strong>A <code>String</code> representing the key for a customer reference. <p>A customer reference can be used for an internal marking system. The value is sent as a <code>String</code> of a maximum 25 characters and received back when the transaction has been processed. Example: \"C.nr. 212311\" </p>",
+                "accessorType": "static"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "6",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

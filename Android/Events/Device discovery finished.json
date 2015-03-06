@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Device discovery finished",
+        "name": "deviceDiscoveryFinished",
+        "version": "3.0.0",
+        "description": "deviceDiscoveryFinished event gets called when a device discovery has finished and returns a list of devices.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addRequiredEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the devices information."
+                    }
+                ]
+            }
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a list of connectable devices\nList<Device> myListOfDevices = new List<Device>();\n@Override\npublic void DeviceDiscoveryFinished(List<Device> devices)\n{\n\tforeach(Device device in devices){\t\tmyListOfDevices.Add(device);\n\t}\n}",
+            "language": "java"
+        }
+    }
+]

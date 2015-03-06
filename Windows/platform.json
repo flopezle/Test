@@ -1,0 +1,19 @@
+{
+    "title": "Windows",
+    "description": "hapi Windows",
+    "order": [
+        "Introduction",
+        "Getting started",
+        "Simulator",
+        "Transactions",
+        "Device management",
+        "Events subscribers",
+        "Events",
+        "Objects"
+    ],
+    "specialSections": [
+        "Introduction",
+        "Getting started",
+        "Simulator"
+    ]
+}

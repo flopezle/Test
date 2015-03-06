@@ -1,0 +1,33 @@
+[
+    {
+        "title": "List Devices (search)",
+        "name": "ListDevices",
+        "version": "1.0.0",
+        "description": "Starts the search for devices to connect with the specified <a href=\"#elem_connectionMethod\">ConnectionMethod</a>",
+        "parameters": [
+            {
+                "name": "method",
+                "type": "ConnectionMethod",
+                "validation": "Required",
+                "notes": "The means of connection you intend to use to talk to the device. (Bluetooth, Serial, USB, etc...)"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "deviceDiscoveryFinished",
+                        "description": "Invoked after the search is finished returning a list of the devices finished."
+                    }
+                ]
+            }
+        ],
+        "order": "8",
+        "type": "method",
+        "example": {
+            "code": "//Search for Bluetooth devices\napi.ListDevices(ConnectionMethod.BLUETOOTH);",
+            "language": "cs"
+        }
+    }
+]

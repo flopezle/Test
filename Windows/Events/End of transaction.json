@@ -1,0 +1,39 @@
+[
+    {
+        "title": "End of transaction",
+        "name": "EndOfTransaction",
+        "version": "1.0.0",
+        "description": "EndOfTransaction event gets called at the end of each transaction and has two parameters, result and device.",
+        "parameters": [
+            {
+                "name": "result",
+                "type": "TransactionResult",
+                "validation": "Required",
+                "notes": "Holds the results for the transaction"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "AddRequiredEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve transaction information."
+                    }
+                ]
+            }
+        ],
+        "order": "2",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a TransactionResult from the SDK.\npublic void EndOfTransaction(TransactionResult transactionResult, Device device)\n{\n\u00a0\u00a0\u00a0\u00a0//You might want to display this information in the UI\n\u00a0\u00a0\u00a0\u00a0postTransactionResultToUI(transactionResult);\n}",
+            "language": "cs"
+        }
+    }
+]

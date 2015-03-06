@@ -1,0 +1,130 @@
+<h3>Step 1: The basic class</h3>
+<p>Now we're going to create a simple class to show the usage of the API:</p>
+
+<pre><code class="C#">using com.handpoint.api;
+
+//You need to take care of the required events.
+//You can live with those for now
+//But you might want to take a look at Events.Log and Events.Status
+//they also have cool information for you :)
+
+class MyClass : Events.Required
+{
+    Hapi api;
+
+    public void DeviceDiscoveryFinished(List&lt;Device&gt; devices)
+    {
+    //When a listDevices has been triggered results are posted here.
+    }
+    public void SignatureRequired(SignatureRequest request, Device device)
+    {
+        //You'll be notified here if a sale process needs signature verification (mostly for swiped card)
+        //See documentation
+    }
+    public void EndOfTransaction(TransactionResult result, Device device)
+    {
+        //Whenever a transaction ends (correctly or due to an error) here you'll be notified
+    }
+
+}
+</code></pre>
+<!--/span-->
+<h3>Step 2: Init the API and list devices</h3>
+<pre><code class="cs">Device device;
+     
+public void InitApi()
+{
+    string sharedSecret = "0102030405060708091011121314151617181920212223242526272829303132";
+    api = HapiFactory.GetAsyncInterface(this).DefaultSharedSecret(sharedSecret);
+    //The API is now initialized. Yay! we've even set a default shared secret!
+    //But we need to connect to a device to start taking payments.
+    api.ListDevices(ConnectionMethod.BLUETOOTH);
+    //This triggers the search for Bluetooth devices but you can also search for USB and Serial
+}
+public void DeviceDiscoveryFinished(List&lt;Device&gt; devices)
+{
+    foreach(Device device in devices)
+    {
+        if(device.Name.Equals("MyDeviceName"))
+        //Here we assume that we know the name of a device and use it.
+        {
+            this.device = device;
+            //We'll remember the device for this session, it is nice if you would do that too
+            api.UseDevice(this.device);
+            //Connection to the device is handled automatically in the API
+        }
+    }
+}
+</code></pre>
+<!--/span-->
+<h3>Step 3: Pay something!</h3>
+<pre><code class="cs">//Let's create a sample payment
+public bool Pay()
+{
+    return api.Sale(new BigInteger("1000"), Currency.ISK);
+}
+ 
+public void EndOfTransaction(TransactionResult transactionResult, Device device)
+{
+    if(transactionResult.FinStatus == FinancialStatus.AUTHORISED)
+    {
+        //fetch the merchant and customer receipt...
+    }
+}
+</code></pre>
+<h3>Result:</h3>
+<pre><code class="cs">class MyClass : Events.Required
+{
+    Hapi api;
+    Device device;
+ 
+    public MyClass()
+    {
+        InitApi();
+    }
+ 
+    public void InitApi()
+    {
+        string sharedSecret = "0102030405060708091011121314151617181920212223242526272829303132";
+        api = HapiFactory.GetAsyncInterface(this).DefaultSharedSecret(sharedSecret);
+        //The api is now initialized. Yay! we've even set a default shared secret!
+        //But we need to connect to a device to start taking payments.
+        api.ListDevices(ConnectionMethod.BLUETOOTH);
+        //This triggers the search for Bluetooth devices but you can also search for USB and Serial
+    }
+
+    public void DeviceDiscoveryFinished(List&lt;Device&gt; devices)
+    {
+        foreach(Device device in devices)
+        {
+            if(device.Name.Equals("MyDeviceName"))
+            //Here we assume that we know the name of a device and use it.
+            {
+                this.device = device;
+                //We'll remember the device for this session, it is nice if you would do that too
+                api.UseDevice(this.device);
+                //Connection to the device is handled automatically in the API
+            }
+        }
+    }
+
+    public bool Pay()
+    {
+        return api.Sale(new BigInteger("1000"), Currency.ISK);
+    }
+ 
+    public void SignatureRequired(SignatureRequest signatureRequest, Device device)
+    {
+        //You'll be notified here if a sale process needs signature verification
+        //See documentation
+    }
+ 
+    public void EndOfTransaction(TransactionResult transactionResult, Device device)
+    {
+        if(transactionResult.FinStatus == FinancialStatus.AUTHORISED)
+        {
+            //fetch the merchant and customer receipt...
+        }
+    }
+}
+</code></pre>

@@ -1,0 +1,76 @@
+[
+    {
+        "title": "Signature Request",
+        "name": "SignatureRequest",
+        "version": "1.1.2",
+        "description": "A class containing information about a signature request/signature verification.",
+        "properties": [
+            {
+                "name": "Timeout",
+                "type": "int",
+                "description": "<code>int</code> the value of the timeout in seconds.",
+                "accessorType": "get"
+            },
+            {
+                "name": "MerchantReceipt",
+                "type": "String",
+                "description": "<code>String</code> the merchant receipt as html.",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "2",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Signature Request",
+        "name": "SignatureRequest",
+        "version": "1.0.0",
+        "deprecated": "1.1.2",
+        "description": "A class containing information about a signature request/signature verification.",
+        "methods": [
+            {
+                "title": "Constructor",
+                "name": "SignatureRequest",
+                "description": "A constructor for a <code>SignatureRequest</code>. <p>A signature request holds information about the timeout of the verification and the merchant receipt, so it can be signed</p> @param request <code>map</code> containing all information about the request",
+                "parameters": [
+                    {
+                        "name": "request",
+                        "type": "Map<String, String>",
+                        "validation": "Required",
+                        "notes": "<code>map</code> containing all information about the request"
+                    }
+                ]
+            }
+        ],
+        "properties": [
+            {
+                "name": "Timeout",
+                "type": "int",
+                "description": "<code>int</code> the value of the timeout in seconds.",
+                "accessorType": "get"
+            },
+            {
+                "name": "MerchantReceipt",
+                "type": "String",
+                "description": "<code>String</code> the merchant receipt as html.",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "2",
+        "type": "object",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

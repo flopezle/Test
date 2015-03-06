@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Signature required",
+        "name": "signatureRequired",
+        "version": "3.0.0",
+        "description": "signatureRequired event gets called when a card requires a signature instead of PIN entry and has two parameters, request and device.",
+        "parameters": [
+            {
+                "name": "request",
+                "type": "SignatureRequest",
+                "validation": "Required",
+                "notes": "Holds the signature request"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addRequiredEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve signature information."
+                    }
+                ]
+            }
+        ],
+        "order": "1",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void signatureRequired(SignatureRequest signatureRequest, Device device) {\n\tsignatureRequest.getMerchantReceipt();\n\tapi.signatureResult(true);\n}",
+            "language": "java"
+        }
+    }
+]

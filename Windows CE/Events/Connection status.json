@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Connection status changed",
+        "name": "ConnectionStatusChanged",
+        "version": "1.0.0",
+        "description": "ConnectionStatusChanged event gets called when the state of a card reader connection changes.",
+        "parameters": [
+            {
+                "name": "status",
+                "type": "ConnectionStatus",
+                "validation": "Required",
+                "notes": "An enum containing the status code for the connection"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "AddStatusNotificationEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the different connection statuses (e.g : CONNECTED, DISCONNECTED...)."
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a new ConnectionStatus from the SDK\npublic void ConnectionStatusChanged(ConnectionStatus connectionStatus, Device device)\n{\n    //You might want to display this information in the UI\n    postNewStatusToUI(connectionStatus);\n}",
+            "language": "cs"
+        }
+    }
+]

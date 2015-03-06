@@ -1,0 +1,35 @@
+[
+    {
+            "title": "Start monitoring connections",
+            "name": "startMonitoringConnections",
+            "version": "3.2.5",
+            "description": "Starts a connection monitoring service. The service listens to events sent by the operating system about the connected hardware. If the service notices that a previously connected device suddenly disconnects on the hardware layer it attempts to reconnect to that particular device. Since this is a service it is necessary that the service is turned off before the application ends its life-time. This means that, if the service was running, stopMonitoringConnections() has to be called before the application is exited completely. Note that the service currently only works with <code>BLUETOOTH</code>. In the case of <code>BLUETOOTH</code> the service will attempt to reconnect to the device three times, if unsuccessful the connection is considered <code>Disconnected</code>.",
+            "descriptionLists": [
+                {
+                    "name": "Events invoked",
+                    "elements": [
+                        {
+                            "name": "connectionStatusChanged",
+                            "description": "Causes the connection manager to invoke this event with the appropriate information."
+                        }
+                    ]
+                },
+                {
+                    "name": "Returns",
+                    "elements": [
+                        {
+                            "name": "None",
+                            "description": "No information is returned."
+                        }
+                    ]
+                }
+            ],
+            "order": "9",
+            "type": "method",
+            "example": {
+                "code": "//Starts the connection monitoring service\n//app starts it's life-time\napi.startMonitoringConnections();\n...\n//app ends its life-time\napi.stopMonitoringConnections",
+                "language": "java"
+            }
+    }
+
+]

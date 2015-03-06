@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Financial Status",
+        "name": "FinancialStatus",
+        "type": "enum",
+        "version": "1.0.0",
+        "description": "An enum representing different statuses of a finalized transaction",
+        "values": [
+            "UNDEFINED",
+            "AUTHORISED",
+            "DECLINED",
+            "PROCESSED",
+            "FAILED",
+            "CANCELLED"
+        ],
+        "order": "5",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

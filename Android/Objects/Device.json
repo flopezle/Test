@@ -1,0 +1,70 @@
+[
+    {
+        "title": "Device",
+        "name": "Device",
+        "version": "3.0.0",
+        "description": "An object to store the information about the device we're working with.",
+        "methods": [
+            {
+                "title": "Constructor",
+                "name": "Device",
+                "description": "constructor method",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "String",
+                        "validation": "Required",
+                        "notes": "A name to identify the device"
+                    },
+                    {
+                        "name": "address",
+                        "type": "String",
+                        "validation": "Required",
+                        "notes": "The address of the device you wish to connect to. E.g.: \"08:00:69:02:01:FC\" for bluetooth or \"192.168.1.105\" for ethernet."
+                    },
+                    {
+                        "name": "port",
+                        "type": "String",
+                        "validation": "Required",
+                        "notes": "The port to connect to."
+                    },
+                    {
+                        "name": "connectionMethod",
+                        "type": "ConnectionMethod",
+                        "validation": "Required",
+                        "notes": "Enumerated type to specify the type of connection with the device. E.g: Bluetooth, Serial, etc..."
+                    },
+                    {
+                        "name": "sharedSecret",
+                        "type": "String",
+                        "validation": "Optional",
+                        "notes": "This is used if you want this specific device to use the specified sharedSecret instead of the default one proviced in the initialization."
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "int",
+                        "validation": "Optional",
+                        "notes": "The amount of miliseconds to consider the connection has timed out. If not set, the default timeout is 15 seconds."
+                    }
+                ]
+            }
+        ],
+        "properties": [
+            {
+                "name": "Id",
+                "type": "String",
+                "description": "An unique identifier of the device.",
+                "accessorType": "get"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "1",
+        "type": "object",
+        "example": {
+            "code": "//Create and init a new Device\nDevice dev = new Device(\"CardReader7\", \"08:00:69:02:01:FC\", \"1\", ConnectionMethod.BLUETOOTH);",
+            "language": "java"
+        }
+    }
+]

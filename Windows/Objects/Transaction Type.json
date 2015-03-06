@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Transaction Type",
+        "name": "TransactionType",
+        "type": "enum",
+        "version": "1.0.0",
+        "description": "An enum representing different types of transactions.",
+        "values": [
+            "UNDEFINED",
+            "SALE",
+            "VOID_SALE",
+            "REFUND",
+            "VOID_REFUND",
+            "CANCEL_SALE",
+            "CANCEL_REFUND"
+        ],
+        "order": "0",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

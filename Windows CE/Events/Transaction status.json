@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Current transaction status",
+        "name": "CurrentTransactionStatus",
+        "version": "1.0.0",
+        "description": "currentTransactionStatus event gets called when the state of an ongoing transaction changes.",
+        "parameters": [
+            {
+                "name": "statusInfo",
+                "type": "StatusInfo",
+                "validation": "Required",
+                "notes": "An object containing information about the current transaction"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "AddStatusNotificationEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the different states from the card reader (e.g : Waiting for card, Waiting for PIN entry...)."
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a transaction status from the SDK.\npublic void currentTransactionStatus(StatusInfo statusInfo, Device device)\n{\n\u00a0\u00a0\u00a0\u00a0//You might want to display some of this information in the UI\n\u00a0\u00a0\u00a0\u00a0DisplayTransactionStatusInUI(statusInfo)\n}",
+            "language": "cs"
+        }
+    }
+]

@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Connection status changed",
+        "name": "connectionStatusChanged",
+        "version": "3.0.0",
+        "description": "connectionStatusChanged event gets called when the state of a card reader connection changes.",
+        "parameters": [
+            {
+                "name": "status",
+                "type": "ConnectionStatus",
+                "validation": "Required",
+                "notes": "An enum containing the status code for the connection"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addStatusNotificationEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the different connection statuses (e.g : CONNECTED, DISCONNECTED...)."
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void connectionStatusChanged(ConnectionStatus connectionStatus, Device device) {\n\tLog.d(App, connectionStatus.name());\n}",
+            "language": "java"
+        }
+    }
+]

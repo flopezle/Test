@@ -1,0 +1,77 @@
+[
+    {
+        "title": "Request device logs",
+        "name": "GetDeviceLogs",
+        "version": "1.1.7",
+        "description": "Fetches the logs from the device and reports them to the DeviceLogsReady event.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "DeviceLogsReady",
+                        "description": "Invoked when hapi has finished downloading logs from the card reader."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Downloads logs from device\napi.GetDeviceLogs();",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Request device logs",
+        "name": "GetDeviceLogs",
+        "version": "1.0.0",
+        "description": "Fetches the logs from the device and reports them to the DeviceLogsReady event.",
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "deviceLogsReady",
+                        "description": "Invoked when hapi has finished downloading logs from the card reader."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Downloads logs from device\napi.GetDeviceLogs();",
+            "language": "cs"
+        }
+    }
+]

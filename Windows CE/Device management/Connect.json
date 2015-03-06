@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Connect",
+        "name": "UseDevice",
+        "version": "1.0.0",
+        "description": "Configures the device as the preferred device and tries to connect to it. Everytime a new connection is started the SDK will make 3 attempts to reestablish the connection. If those attempts fail, the connection is considered dead.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "This parameter specifies to the system which device you want to use for the operations."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "ConnectionStatusChanged",
+                        "description": "Each time the card reader state changes (ex : going from Connected to Disconnected) the ConnectionStatusChanged event is called. It causes the connection manager to invoke this event with the appropriate information."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successful."
+                    }
+                ]
+            }
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//Connect to a device\nDevice device = new Device(\"CardReader7\", \"08:00:69:02:01:FC\", \"1\", ConnectionMethod.BLUETOOTH);\n\napi.UseDevice(device);",
+            "language": "cs"
+        }
+    }
+]

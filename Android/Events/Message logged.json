@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Message logged",
+        "name": "onMessageLogged",
+        "version": "3.0.0",
+        "description": "onMessageLogged event gets called for all log messages that are being logged. This is only intended for debugging.",
+        "parameters": [
+            {
+                "name": "logLevel",
+                "type": "LogLevel",
+                "validation": "Required",
+                "notes": "An enum containing the log level"
+            },
+            {
+                "name": "message",
+                "type": "String",
+                "validation": "Required",
+                "notes": "A String containing the current log message"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addLogEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the different log messages."
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void onMessageLogged(LogLevel logLevel, String message){\n\tLog.d(\"API log\", message);\n}",
+            "language": "java"
+        }
+    }
+]

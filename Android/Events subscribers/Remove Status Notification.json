@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Remove Status Notification Event Handler",
+        "name": "removeStatusNotificationEventHandler",
+        "version": "3.1.1",
+        "description": "Removes a listener so information is not passed on to that listener any more.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "Status",
+                "validation": "Required",
+                "notes": "The listener to be removed"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the new listener was removed successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Remove a listener for status notification events\nthis.api.removeStatusNotificationEventHandler(this);",
+            "language": "java"
+        }
+    }
+]

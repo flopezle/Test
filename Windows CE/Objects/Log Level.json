@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Log Level",
+        "name": "LogLevel",
+        "type": "enum",
+        "version": "1.0.0",
+        "description": "An enum describing the different levels of logging used in the hapi and used in the device.",
+        "values": [
+            "None",
+            "Info",
+            "Full",
+            "Debug"
+        ],
+        "order": "6",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

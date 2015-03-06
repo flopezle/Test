@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Remove Pending Results Event Handler",
+        "name": "RemovePendingResultsEventHandler",
+        "version": "1.1.8",
+        "description": "Removes a listener so information is not passed on to that listener any more.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "PendingResults",
+                "validation": "Required",
+                "notes": "The listener to be removed"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the new listener was removed successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "7",
+        "type": "method",
+        "example": {
+            "code": "//Remove a listener for pending results events\nthis.api.RemovePendingResultsEventHandler(this);",
+            "language": "cs"
+        }
+    }
+]

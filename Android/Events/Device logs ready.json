@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Logs ready",
+        "name": "deviceLogsReady",
+        "version": "3.0.0",
+        "description": "DeviceLogsReady event gets called when the card reader logs requested by a call to getDeviceLogs() are ready. This Event is really useful if there has been a communication error between the card reader and the API (e.g : Bluetooth communication lost). After reconnecting, you can then fetch the card reader logs to the API.",
+        "parameters": [
+            {
+                "name": "logs",
+                "type": "String",
+                "validation": "Required",
+                "notes": "String containing the current log"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addLogEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the card reader logs."
+                    }
+                ]
+            }
+        ],
+        "order": "6",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void deviceLogsReady(String logs, Device device){\n\tLog.d(\"Device logs:\", logs);\n}",
+            "language": "java"
+        }
+    }
+]

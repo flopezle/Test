@@ -1,0 +1,134 @@
+<h3>Step 1: The basic class</h3>
+
+<p>To use the library we're assuming you have an Android project. The SDK it self is a single jar file with all needed dependencies.
+    Depending on the IDE used the jar needs to be added as an external library or a dependency to the Android project. In order to work,
+    our library requires some permissions on your side. You <strong>must</strong> add the following to your AndroidManifest.xml file</p>
+<pre><code class="xml">&lt;uses-permission android:name="android.permission.BLUETOOTH" /&gt;
+&lt;uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /&gt;
+&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+</code></pre>
+<br/>
+
+<p>Now we're going to create a simple class to show the usage of the API:</p>
+
+<pre><code class="java">import com.handpoint.api.*;
+
+//You need to take care of the required events.
+//You can live with those for now
+//But you might want to take a look at Events.Log and Events.Status
+//they also have cool information for you :)
+public class MyClass implements Events.Required
+{
+    Hapi api;
+
+    @Override
+    public void deviceDiscoveryFinished(List&lt;Device&gt; devices){
+    //When a listDevices has been triggered results are posted here.
+    }
+
+    @Override
+    public void signatureRequired(SignatureRequest signatureRequest, Device device){
+        //You'll be notified here if a sale process needs signature verification
+        //See documentation
+    }
+
+    @Override
+    public void endOfTransaction(TransactionResult transactionResult, Device device){
+        //Whenever a transaction ends (correctly or due to an error) here you'll be notified
+    }
+}
+</code></pre>
+<!--/span-->
+<h3>Step 2: Init the API and list devices</h3>
+<pre><code class="java">Device device;
+
+//An Android Context is required to be able to handle bluetooth
+public void initApi(Context context){
+    String sharedSecret = "0102030405060708091011121314151617181920212223242526272829303132";
+    this.api = HapiFactory.getAsyncInterface(this, context).defaultSharedSecret(sharedSecret);
+
+    //The api is now initialized. Yay! we've even set a default shared secret!
+    //But we need to connect to a device to start taking payments.
+    //Let's search for them:
+    this.api.listDevices(ConnectionMethod.BLUETOOTH);
+    //This triggers the search, you should expect the results in the listener defined above
+}
+
+//You should populate this method as is you see fit.
+//Here we assume the name of a device and use it.
+//Connection to the device is handled automatically in the API
+@Override
+public void deviceDiscoveryFinished(List&lt;Device&gt; devices){
+    for(Device device : devices){
+    if(device.getName().equals("MyDeviceName")){
+        //We'll remember the device for this session, but is cool that you do too
+            this.device = device;
+            this.api.useDevice(this.device);
+        }
+    }
+}
+</code></pre>
+<!--/span-->
+<h3>Step 3: Pay something!</h3>
+<pre><code class="java">//Let's create a sample payment
+public boolean pay(){
+    return this.api.sale(new BigInteger("1000"), Currency.ISK);
+}
+
+@Override
+public void endOfTransaction(TransactionResult transactionResult, Device device){
+    if(transactionResult.getFinStatus() == FinancialStatus.AUTHORISED){
+        //...
+    }
+}
+</code></pre>
+<h3>Result:</h3>
+<pre><code class="java">public class MyClass implements Events.Required
+{
+    Hapi api;
+    Device device;
+
+    public MyClass(Context context){
+        initApi(context);
+    }
+
+    public void initApi(Context context){
+        String sharedSecret = "0102030405060708091011121314151617181920212223242526272829303132";
+        this.api = HapiFactory.getAsyncInterface(this, context).defaultSharedSecret(sharedSecret);
+
+        //The api is now initialized. Yay! we've even set a default shared secret!
+        //But we need to connect to a device to start taking payments.
+        //Let's search for them:
+        this.api.listDevices(ConnectionMethod.BLUETOOTH);
+        //This triggers the search, you should expect the results in the listener defined above
+    }
+
+    @Override
+    public void deviceDiscoveryFinished(List&lt;Device&gt; devices){
+        for(Device device : devices){
+            if(device.getName().equals("MyDeviceName")){
+                //We'll remember the device for this session, but is cool that you do too
+                this.device = device;
+                this.api.useDevice(this.device);
+            }
+        }
+    }
+
+    public boolean pay(){
+        return this.api.sale(new BigInteger("1000"), Currency.ISK);
+    }
+
+    @Override
+        public void signatureRequired(SignatureRequest signatureRequest, Device device){
+        //You'll be notified here if a sale process needs signature verification
+        //See documentation
+    }
+
+    @Override
+        public void endOfTransaction(TransactionResult transactionResult, Device device){
+        if(transactionResult.getFinStatus() == FinancialStatus.AUTHORISED){
+            //...
+        }
+    }
+}
+</code></pre>

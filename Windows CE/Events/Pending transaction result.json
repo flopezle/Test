@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Pending transaction result",
+        "name": "PendingTransactionResult",
+        "version": "1.1.8",
+        "description": "In the case of a communication failure between the device and the API a <a href=\"#elem_transactionResult\">TransactionResult</a> might have not been delivered to the API. This event is invoked when the device has a pending TransactionResult. This event might be invoked when reconnecting to a device after a communication failure during a transaction. This event will not be called if <a href=\"#elem_hapiManager\">HapiManager</a>.Settings.AutoRecoverTransactionResult is set to true.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "AddPendingResultsEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve information about pending results."
+                    }
+                ]
+            }
+        ],
+        "order": "7",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void PendingTransactionResult(Device device){\n\t//Here you might want to call api.GetPendingTransaction(); to receive the TransactionResult\n}",
+            "language": "cs"
+        }
+    }
+]

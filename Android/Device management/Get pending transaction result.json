@@ -1,0 +1,42 @@
+[
+    {
+        "title": "Request pending transaction results",
+        "name": "getPendingTransaction",
+        "version": "3.2.5",
+        "description": "<b>Please note this method is only supported on Card Readers with EFT Software versions 1.7.x and 2.2.x and up</b><br>In the case of a communication failure between the device and the API a <a href=\"#elem_transactionResult\">TransactionResult</a> might have not been delivered to the API. This function fetches a pending TransactionResult (which contains receipts) from the device, if any. If no TransactionResult was pending a result will be delivered containing default fields. In order to receive only valid TransactionResults this function should only be called when <a href=\"#elem_pendingTransactionResult\">pendingTransactionResult</a> event is invoked or when <a href=\"#elem_hapiManager\">HapiManager</a>.isTransactionResultPending() is true. To receive events when a TransactionResult is pending on the device please add a Events.<a href=\"#elem_addPendingResultsEventHandler\">PendingResults</a> listener.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "transactionResultReady",
+                        "description": "Invoked when hapi has finished fetching a TransactionResult from the device."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to the device"
+                    }
+                ]
+            }
+        ],
+        "order": "6",
+        "type": "method",
+        "example": {
+            "code": "//Fetches a pending TransactionResult from a device\napi.getPendingTransaction();",
+            "language": "java"
+        }
+    }
+]

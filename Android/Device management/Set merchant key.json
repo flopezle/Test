@@ -1,0 +1,134 @@
+[
+    {
+            "title": "Set merchant key",
+            "name": "setSharedSecret",
+            "version": "3.2.4",
+            "description": "Validates the app for this session, thus enabling financial transactions",
+            "parameters": [
+                {
+                    "name": "sharedSecret",
+                    "type": "String",
+                    "validation": "Required",
+                    "notes": "The shared secret is a key provided by Handpoint when you get your account that enables you to perform live operations with the card reader. However, if you're developing with a starter kit, the test shared secret is specified in the example"
+                },
+                {
+                    "name": "device",
+                    "type": "Device",
+                    "validation": "Optional",
+                    "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+                }
+            ],
+            "descriptionLists": [
+                {
+                    "name": "Events invoked",
+                    "elements": [
+                        {
+                            "name": "None",
+                            "description": "No events invoked."
+                        }
+                    ]
+                },
+                {
+                    "name": "Returns",
+                    "elements": [
+                        {
+                            "name": "Boolean",
+                            "description": "true if the operation was successfully sent to device"
+                        }
+                    ]
+                }
+            ],
+            "order": "2",
+            "type": "method",
+            "example": {
+                "code": "//Sets the shared secret using the test key\napi.setSharedSecret(\"0102030405060708091011121314151617181920212223242526272829303132\");",
+                "language": "java"
+            }
+        },
+    {
+        "title": "Set merchant key",
+        "name": "setSharedSecret",
+        "version": "3.1.1",
+        "description": "Validates the app for this session, thus enabling financial transactions",
+        "parameters": [
+            {
+                "name": "sharedSecret",
+                "type": "String",
+                "validation": "Required",
+                "notes": "The shared secret is a key provided by Handpoint when you get your account that enables you to perform live operations with the card reader. However, if you're developing with a starter kit, the test shared secret is specified in the example"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "No events invoked."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "2",
+        "type": "method",
+        "example": {
+            "code": "//Sets the shared secret using the test key\napi.setSharedSecret(\"0102030405060708091011121314151617181920212223242526272829303132\");",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Set merchant key",
+        "name": "setSharedSecret",
+        "version": "3.0.0",
+        "description": "Saves the shared secret for the card reader so operations will be accepted by it.",
+        "parameters": [
+            {
+                "name": "sharedSecret",
+                "type": "String",
+                "validation": "Optional",
+                "notes": "This is used if you want to send the operation to a specific device. Recommended if you are using multiple devices"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The shared secret"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "No events invoked."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "2",
+        "type": "method",
+        "example": {
+            "code": "//Sets the shared secret\napi.setSharedSecret(\"0102030405060708091011121314151617181920212223242526272829303132\");",
+            "language": "java"
+        }
+    }
+]

@@ -1,0 +1,140 @@
+[
+    {
+        "title": "Refund reversal",
+        "name": "RefundReversal",
+        "version": "1.1.7",
+        "description": "A Refund Reversal, also called Refund VOID allows the merchant to reverse a previous refund operation. This operation reverts (if possible) a specific refund identified with a transaction id. In it's simplest form you only have to pass the amount, currency and originalTransactionID but it also accepts a map with extra parameters. Note that transactions can only be reversed within the same day as the transaction was made.",
+        "parameters": [
+            {
+                "name": "amount",
+                "type": "BigInteger",
+                "validation": "Required",
+                "notes": "Amount of funds to charge - in the minor unit of currency (f.ex. 1000 is 10.00 GBP)"
+            },
+            {
+                "name": "currency",
+                "type": "Currency",
+                "validation": "Required",
+                "notes": "Currency of the charge"
+            },
+            {
+                "name": "originalTransactionID",
+                "type": "String",
+                "validation": "Required",
+                "notes": "As received from the card reader (EFTTransactionID)"
+            },
+            {
+                "name": "map",
+                "type": "Map",
+                "validation": "Optional",
+                "notes": "A map including extra <a href=\"#elem_optionalParameters\">optional transaction parameters</a>."
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "currentTransactionStatus",
+                        "description": "Invoked during a transaction, it fetches statuses coming from the card reader (ex : 'waiting for card' or 'waiting for PIN entry')"
+                    },
+                    {
+                        "name": "signatureRequired",
+                        "description": "Invoked if card verification requires signature."
+                    },
+                    {
+                        "name": "endOfTransaction",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//Initiate a refund reversal for 10.00 in Great British Pounds\napi.RefundReversal(new BigInteger(1000),Currency.GBP,\"00000000-0000-0000-0000-000000000000\");",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Refund reversal",
+        "name": "RefundReversal",
+        "version": "1.0.0",
+        "description": "A RefundReversal initiates a reversal operation for a previous refund operation to the card reader. This operation reverts (if possible) a specific refund identified with a transaction id. In it's simplest form you only have to pass the amount, currency and originalTransactionID but it also accepts a map with extra parameters. Note that transactions can only be reversed within the same day as the transaction was made.",
+        "parameters": [
+            {
+                "name": "amount",
+                "type": "BigInteger",
+                "validation": "Required",
+                "notes": "Amount of funds to charge - in the minor unit of currency (f.ex. 1000 is 10.00 GBP)"
+            },
+            {
+                "name": "currency",
+                "type": "Currency",
+                "validation": "Required",
+                "notes": "Currency of the charge"
+            },
+            {
+                "name": "originalTransactionID",
+                "type": "String",
+                "validation": "Required",
+                "notes": "As received from the card reader (EFTTransactionID)"
+            },
+            {
+                "name": "map",
+                "type": "Map",
+                "validation": "Optional",
+                "notes": "A map including extra <a href=\"#elem_optionalParameters\">optional transaction parameters</a>."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "currentTransactionStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "signatureRequired",
+                        "description": "Invoked if card verification requires signature."
+                    },
+                    {
+                        "name": "endOfTransaction",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//Initiate a refund reversal for 10.00 in Great British Pounds\napi.RefundReversal(new BigInteger(1000),Currency.GBP,\"1234567\");",
+            "language": "cs"
+        }
+    }
+]

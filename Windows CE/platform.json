@@ -1,0 +1,19 @@
+{
+    "title": "WinCE.Mobile",
+    "description": "hapi WinCE Mobile",
+    "order": [
+        "Introduction",
+        "Getting started",
+        "Simulator",
+        "Transactions",
+        "Device management",
+        "Events subscribers",
+        "Events",
+        "Objects"
+    ],
+    "specialSections": [
+        "Introduction",
+        "Getting started",
+        "Simulator"
+    ]
+}

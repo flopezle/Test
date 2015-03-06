@@ -1,0 +1,122 @@
+[
+    {
+        "title": "Hapi Manager",
+        "name": "HapiManager",
+        "type": "object",
+        "version": "3.2.5",
+        "description": "A static class containing information about the current status of the SDK",
+        "properties": [
+            {
+                "name": "DefaultSharedSecret",
+                "type": "String",
+                "description": "Gets the default shared secret is use in the SDK.",
+                "accessorType": "get"
+            },
+            {
+                "name": "LogLevel",
+                "type": "LogLevel",
+                "description": "Gets the current log level of the SDK and card reader.",
+                "accessorType": "get"
+            },
+            {
+                "name": "inTransaction",
+                "type": "boolean",
+                "description": "Checks whether the SDK is in transaction or not. True if the SDK is in transaction, false otherwise. This might return a true if there is a communication error between the SDK and card reader but the transaction has been completed on the card reader.",
+                "accessorType": "get"
+            },
+            {
+                "name": "SdkVersion",
+                "type": "String",
+                "description": "Gets the current Sdk version.",
+                "accessorType": "get"
+            },
+            {
+                "name": "isTransactionResultPending",
+                "type": "boolean",
+                "description": "In the case of a communication failure between the device and the API a <a href=\"#elem_transactionResult\">TransactionResult</a> might have not been delivered to the API. This function checks if there is a pending TransactionResult. This field is only updated when connecting to a device. If this function returns true the TransactionResult (which includes the receipt) can be fetched with hapi.<a href=\"#elem_getPendingTransactionResult\">getPendingTransactionResult()</a>;. This function serves the same functionality as the event pendingTransactionResult(Device device), so every time that event is invoked, HapiManager.IsTransactionResultPending() is true until the result is fetched.",
+                "accessorType": "get"
+            },
+            {
+                "name": "Settings.autoRecoverTransactionResult",
+                "type": "boolean",
+                "description": "In the case of a communication failure between the device and the API a <a href=\"#elem_transactionResult\">TransactionResult</a> might have not been delivered to the API. This property can be set to true or false. If set to true, the SDK will automatically fetch the pending TransactionResult when detected and return it via <a href=\"#elem_transactionResultReady\">transactionResultReady</a>. The function <a href=\"#elem_pendingTransactionResult\">pendingTransactionResult</a> is never invoked if this property is set to true. If set to false <a href=\"#elem_pendingTransactionResult\">pendingTransactionResult</a> will be called when a TransactionResult is pending.",
+                "accessorType": "get/set"
+            }
+        ],
+        "order": "11",
+        "example": {
+            "code": "//Check if the SDK is in transaction\nboolean inTransaction = HapiManager.inTransaction(someConnectedDevice);\n//Check the current logLevel\nLogLevel level = HapiManager.getLogLevel();",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Hapi Manager",
+        "name": "HapiManager",
+        "type": "object",
+        "version": "3.2.4",
+        "description": "A static class containing information about the current status of the SDK",
+        "properties": [
+            {
+                "name": "DefaultSharedSecret",
+                "type": "String",
+                "description": "Gets the default shared secret is use in the SDK.",
+                "accessorType": "get"
+            },
+            {
+                "name": "LogLevel",
+                "type": "LogLevel",
+                "description": "Gets the current log level of the SDK and card reader.",
+                "accessorType": "get"
+            },
+            {
+                "name": "inTransaction",
+                "type": "boolean",
+                "description": "Checks whether the SDK is in transaction or not. True if the SDK is in transaction, false otherwise. This might return a true if there is a communication error between the SDK and card reader but the transaction has been completed on the card reader.",
+                "accessorType": "get"
+            },
+            {
+                "name": "SdkVersion",
+                "type": "String",
+                "description": "Gets the current Sdk version.",
+                "accessorType": "get"
+            }
+        ],
+        "order": "11",
+        "example": {
+            "code": "//Check if the SDK is in transaction\nboolean inTransaction = HapiManager.inTransaction(someConnectedDevice);\n//Check the current logLevel\nLogLevel level = HapiManager.getLogLevel();",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Hapi Manager",
+        "name": "HapiManager",
+        "type": "object",
+        "version": "3.2.3",
+        "description": "A static class containing information about the current status of the SDK",
+        "properties": [
+            {
+                "name": "DefaultSharedSecret",
+                "type": "String",
+                "description": "Gets the default shared secret is use in the SDK.",
+                "accessorType": "get"
+            },
+            {
+                "name": "LogLevel",
+                "type": "LogLevel",
+                "description": "Gets the current log level of the SDK and card reader.",
+                "accessorType": "get"
+            },
+            {
+                "name": "inTransaction",
+                "type": "boolean",
+                "description": "Checks whether the SDK is in transaction or not. True if the SDK is in transaction, false otherwise. This might return a true if there is a communication error between the SDK and card reader but the transaction has been completed on the card reader.",
+                "accessorType": "get"
+            }
+        ],
+        "order": "11",
+        "example": {
+            "code": "//Check if the SDK is in transaction\nboolean inTransaction = HapiManager.inTransaction(someConnectedDevice);\n//Check the current logLevel\nLogLevel level = HapiManager.getLogLevel();",
+            "language": "java"
+        }
+    }
+]

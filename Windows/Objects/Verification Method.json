@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Verification Method",
+        "name": "VerificationMethod",
+        "type": "enum",
+        "version": "1.0.0",
+        "description": "An enum representing different verification methods used in the transaction.",
+        "values": [
+            "UNDEFINED",
+            "SIGNATURE",
+            "PIN",
+            "PIN_SIGNATURE",
+            "FAILED",
+            "NOT_REQUIRED"
+        ],
+        "order": "7",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

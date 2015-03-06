@@ -1,0 +1,68 @@
+[
+    {
+        "title": "Current transaction status",
+        "name": "currentTransactionStatus",
+        "version": "3.1.1",
+        "description": "currentTransactionStatus event gets called when the state of an ongoing transaction changes.",
+        "parameters": [
+            {
+                "name": "statusInfo",
+                "type": "StatusInfo",
+                "validation": "Required",
+                "notes": "An object containing information about the current transaction"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addStatusNotificationEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the different states from the card reader (e.g : Waiting for card, Waiting for PIN entry...)."
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void currentTransactionStatus(StatusInfo statusInfo, Device device) {\n}",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Current transaction status",
+        "name": "currentTransactionStatus",
+        "version": "3.0.0",
+        "description": "currentTransactionStatus event gets called when when the state of an ongoing transaction changes.",
+        "parameters": [
+            {
+                "name": "statusInfo",
+                "type": "StatusInfo",
+                "validation": "Required",
+                "notes": "An enum contaning the status code for the transaction"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "10",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void currentTransactionStatus(StatusInfo statusInfo, Device device) {\n}",
+            "language": "java"
+        }
+    }
+]

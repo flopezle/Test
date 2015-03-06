@@ -1,0 +1,85 @@
+[
+    {
+        "title": "Cancel transaction",
+        "name": "CancelRequest",
+        "version": "1.1.7",
+        "description": "This method attempts to cancel the current operation on the card reader. Note that operations cannot be cancelled at certain points in the transaction process",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "currentTransactionStatus",
+                        "description": "Invoked during a transaction, it fetches statuses coming from the card reader (ex : 'waiting for card' or 'waiting for PIN entry')"
+                    },
+                    {
+                        "name": "endOfTransaction",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//Attempts to cancel an operation\napi.CancelRequest();",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Cancel transaction",
+        "name": "CancelRequest",
+        "version": "1.0.0",
+        "description": "This method attempts to cancel the current operation on device. Note that operations cannot be cancelled at certain points in the transaction process",
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "currentTransactionStatus",
+                        "description": "Invoked while during transaction with different statuses from card reader"
+                    },
+                    {
+                        "name": "endOfTransaction",
+                        "description": "Invoked when the card reader finishes processing the transaction"
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//Attempts to cancel an operation\napi.CancelRequest();",
+            "language": "cs"
+        }
+    }
+]

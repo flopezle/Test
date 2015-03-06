@@ -1,0 +1,39 @@
+[
+    {
+        "title": "Message logged",
+        "name": "OnMessageLogged",
+        "version": "1.0.0",
+        "description": "OnMessageLogged event gets called for all log messages that are being logged. This is only intended for debugging.",
+        "parameters": [
+            {
+                "name": "logLevel",
+                "type": "LogLevel",
+                "validation": "Required",
+                "notes": "An enum containing the log level"
+            },
+            {
+                "name": "message",
+                "type": "String",
+                "validation": "Required",
+                "notes": "A String containing the current log message"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "AddLogEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve the different log messages."
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Receiving a log from the SDK\npublic void OnMessageLogged(LogLevel logLevel, String message)\n{\n    //You do not want to display this information in the UI\n    Debug.WriteLine(message);\n}",
+            "language": "cs"
+        }
+    }
+]

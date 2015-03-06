@@ -1,0 +1,43 @@
+[{
+        "title": "Connection Method",
+        "name": "ConnectionMethod",
+        "type": "enum",
+        "version": "3.2.1",
+        "description": "A list of defined connection methods in the hapi.<p>Only <code>BLUETOOTH</code> and <code>SIMULATOR</code> are supported for android devices right now.</p>",
+        "values": [
+            "USB",
+            "SERIAL",
+            "BLUETOOTH",
+            "HTTPS",
+            "WIFI",
+            "ETHERNET",
+            "SIMULATOR"
+        ],
+        "order": "1",
+        "example": {
+            "code": "//Currently BLUETOOTH and SIMULATOR are the only ConnectionMethod available.\npublic enum ConnectionMethod {\n\t<strike>USB</strike>,\n\t<strike>SERIAL</strike>,\n\tBLUETOOTH,\n\t<strike>HTTPS</strike>,\n\t<strike>WIFI</strike>,\n\t<strike>ETHERNET</strike>,\n\tSIMULATOR\n}",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Connection Method",
+        "name": "ConnectionMethod",
+        "type": "enum",
+        "version": "3.0.0",
+        "deprecated": "3.2.1",
+        "description": "A list of defined connection methods in the hapi.<p>Only <code>BLUETOOTH</code> is supported for android devices right now.</p>",
+        "values": [
+            "USB",
+            "SERIAL",
+            "BLUETOOTH",
+            "HTTPS",
+            "WIFI",
+            "ETHERNET"
+        ],
+        "order": "1",
+        "example": {
+            "code": "//Currently BLUETOOTH is the only ConnectionMethod available.\npublic enum ConnectionMethod {\n\t<strike>USB</strike>,\n\t<strike>SERIAL</strike>,\n\tBLUETOOTH,\n\t<strike>HTTPS</strike>,\n\t<strike>WIFI</strike>,\n\t<strike>ETHERNET</strike>\n}",
+            "language": "java"
+        }
+    }
+]

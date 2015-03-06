@@ -1,0 +1,117 @@
+[
+    {
+        "title": "Request device logs",
+        "name": "getDeviceLogs",
+        "version": "3.2.4",
+        "description": "Fetches the logs from the device and reports them to the deviceLogsReady event.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "deviceLogsReady",
+                        "description": "Invoked when hapi has finished downloading logs from the card reader."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Downloads logs from device\napi.getDeviceLogs();",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Request device logs",
+        "name": "getDeviceLogs",
+        "version": "3.1.1",
+        "description": "Fetches the logs from the device and reports them to the deviceLogsReady event.",
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "deviceLogsReady",
+                        "description": "Invoked when hapi has finished downloading logs from the card reader."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Downloads logs from device\napi.getDeviceLogs();",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Request device logs",
+        "name": "getDeviceLogs",
+        "version": "3.0.0",
+        "description": "Fetches the logs from the device and reports them to the deviceLogsReady event.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This is used if you want to send the operation to a specific device. Recommended if you are using multiple devices"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "deviceLogsReady",
+                        "description": "Invoked when hapi has finished downloading logs from the card reader."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "5",
+        "type": "method",
+        "example": {
+            "code": "//Downloads logs from device\napi.getDeviceLogs();",
+            "language": "java"
+        }
+    }
+]

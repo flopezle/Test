@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Card Entry Type",
+        "name": "CardEntryType",
+        "type": "enum",
+        "version": "3.0.0",
+        "description": "An enum representing different card entry types.",
+        "values": [
+            "UNDEFINED",
+            "MSR",
+            "ICC",
+            "CNP"
+        ],
+        "order": "10",
+        "example": {
+            "code": "",
+            "language": "java"
+        }
+    }
+]

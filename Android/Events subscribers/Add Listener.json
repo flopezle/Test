@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Add listener",
+        "name": "addListener",
+        "version": "3.0.0",
+        "deprecated": "3.1.1",
+        "description": "Registers a listener to hapi events.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "Log<br/>Required,<br/>Status",
+                "validation": "Required",
+                "notes": "Only listeners of the type \"Required\" are required for the simplest integration"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//Register a listener for required events\nthis.api.addListener(this);",
+            "language": "java"
+        }
+    }
+]

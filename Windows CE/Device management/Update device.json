@@ -1,0 +1,77 @@
+[
+    {
+        "title": "Update device",
+        "name": "Update",
+        "version": "1.1.7",
+        "description": "The update operation checks for update to the card reader and initiates an update if needed. The update can either be a software update or a configuration update.",
+        "parameters": [
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Optional",
+                "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "Information about this process should be available at the device's screen."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "7",
+        "type": "method",
+        "example": {
+            "code": "//Check for card reader update\napi.Update();",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Update device",
+        "name": "Update",
+        "version": "1.0.0",
+        "description": "The update operation checks for update to the card reader and initiates an update if needed.",
+        "parameters": [
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "Information about this process should be available at the device's screen."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "6",
+        "type": "method",
+        "example": {
+            "code": "//Check for card reader update\napi.Update();",
+            "language": "cs"
+        }
+    }
+]

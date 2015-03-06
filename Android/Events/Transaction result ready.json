@@ -1,0 +1,40 @@
+[
+    {
+        "title": "Transaction result ready",
+        "name": "transactionResultReady",
+        "version": "3.2.5",
+        "description": "In the case of a communication failure between the device and the API a <a href=\"#elem_transactionResult\">TransactionResult</a> might have not been delivered to the API. This event will be invoked after using hapi.<a href=\"#elem_getPendingTransaction\">getPendingTransaction()</a>;. When there is no pending transaction the TransactionResult will contain default/error fields and no receipts. This event is called if <a href=\"#elem_hapiManager\">HapiManager</a>.Settings.autoRecoverTransactionResult is set to true.",
+        "parameters": [
+            {
+                "name": "result",
+                "type": "TransactionResult",
+                "validation": "Required",
+                "notes": "Holds the results for the transaction"
+            },
+            {
+                "name": "device",
+                "type": "Device",
+                "validation": "Required",
+                "notes": "The device that is invoking the event"
+            }
+
+        ],
+        "descriptionLists": [
+            {
+                "name": "Subscribers Needed",
+                "elements": [
+                    {
+                        "name": "addPendingResultsEventHandler",
+                        "description": "This listener has to be implemented (preferably during initialisation) in order to retrieve information about pending results."
+                    }
+                ]
+            }
+        ],
+        "order": "8",
+        "type": "method",
+        "example": {
+            "code": "@Override\npublic void transactionResultReady(TransactionResult transactionResult, Device device){\n\t//Here you might want to do stuff to the transactionResult\n}",
+            "language": "java"
+        }
+    }
+]

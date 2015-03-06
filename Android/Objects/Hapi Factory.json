@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Handpoint API (Hapi) factory",
+        "name": "HapiFactory",
+        "version": "3.0.0",
+        "description": "A factory to provide a unified entrypoint and to simplify the way to instantiate the Hapi object.",
+        "methods": [
+            {
+                "title": "Static factory",
+                "name": "getAsyncInterface",
+                "description": "constructor method",
+                "parameters": [
+                    {
+                        "name": "requiredListener",
+                        "type": "Events.Required",
+                        "validation": "Required",
+                        "notes": "A listener object to report the required events."
+                    },
+                    {
+                        "name": "context",
+                        "type": "Context",
+                        "validation": "Required",
+                        "notes": "The Android context in order to handle bluetooth."
+                    }
+                ]
+            }
+        ],
+        "properties": [
+
+        ],
+        "descriptionLists": [
+
+        ],
+        "order": "0",
+        "type": "object",
+        "example": {
+            "code": "//An Android Context is required to be able to handle bluetooth\npublic void initApi(Context context) {\n\tString sharedSecret = \"0102030405060708091011121314151617181920212223242526272829303132\";\n\tthis.api = HapiFactory.getAsyncInterface(this, context).defaultSharedSecret(sharedSecret);\n}",
+            "language": "java"
+        }
+    }
+]

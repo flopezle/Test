@@ -1,0 +1,128 @@
+[
+    {
+            "title": "Set logging level",
+            "name": "setLogLevel",
+            "version": "1.1.7",
+            "description": "Sets the log level (info, debug...) for both the card reader and the API. Note : At the end of a transaction, the card reader logs are always automatically fetched to the API.",
+            "parameters": [
+                {
+                    "name": "level",
+                    "type": "LogLevel",
+                    "validation": "Required",
+                    "notes": "The desired log level. Can be LogLevel.None, LogLevel.Info, LogLevel.Full, LogLevel.Debug"
+                },
+                {
+                    "name": "device",
+                    "type": "Device",
+                    "validation": "Optional",
+                    "notes": "This parameter specifies to the system which device you want to use for the operations. If none is supplied the system will attempt to use a default device, if any."
+                }
+            ],
+            "descriptionLists": [
+                {
+                    "name": "Events invoked",
+                    "elements": [
+                        {
+                            "name": "None",
+                            "description": "No events are invoked."
+                        }
+                    ]
+                },
+                {
+                    "name": "Returns",
+                    "elements": [
+                        {
+                            "name": "Boolean",
+                            "description": "true if the operation was successfully sent to device"
+                        }
+                    ]
+                }
+            ],
+            "order": "4",
+            "type": "method",
+            "example": {
+                "code": "//Sets the log level to info\napi.SetLogLevel(LogLevel.info);",
+                "language": "cs"
+            }
+        },
+    {
+        "title": "Set logging level",
+        "name": "setLogLevel",
+        "version": "1.1.2",
+        "description": "Sets the log level of the hapi for both the device and the API.",
+        "parameters": [
+            {
+                "name": "level",
+                "type": "LogLevel",
+                "validation": "Required",
+                "notes": "The desired log level. Can be LogLevel.None, LogLevel.Info, LogLevel.Full, LogLevel.Debug"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "No events are invoked."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//Sets the log level to info\napi.SetLogLevel(LogLevel.info);",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Set logging level",
+        "name": "SetLogLevel",
+        "version": "1.0.0",
+        "description": "Sets the log level of the device.",
+        "parameters": [
+            {
+                "name": "level",
+                "type": "LogLevel",
+                "validation": "Required",
+                "notes": "The desired log level. Can be LogLevel.None, LogLevel.Info, LogLevel.Full, LogLevel.Debug"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Events invoked",
+                "elements": [
+                    {
+                        "name": "None",
+                        "description": "No events are invoked."
+                    }
+                ]
+            },
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the operation was successfully sent to device"
+                    }
+                ]
+            }
+        ],
+        "order": "4",
+        "type": "method",
+        "example": {
+            "code": "//Sets the log level to info\napi.SetLogLevel(LogLevel.info);",
+            "language": "cs"
+        }
+    }
+]

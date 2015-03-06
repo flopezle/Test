@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Add Required Event Handler",
+        "name": "AddRequiredEventHandler",
+        "version": "1.0.0",
+        "description": "Adds a listener so necessary information can be retrieved. Such as signature verification, receipts and list of devices. This listener fetches information from the following events : <a href=\"#elem_deviceDiscoveryFinished\">DeviceDiscoveryFinished</a>, <a href=\"#elem_signatureRequired\">SignatureRequired</a> and <a href=\"#elem_endOfTransaction\">EndOfTransaction</a>. The corresponding removal method, <a href=\"#elem_removeRequiredEventHandler\">RemoveRequiredEventHandler</a>, must be called before the end of your applications life-time to prevent memory leakage.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "Required",
+                "validation": "Required",
+                "notes": "An implementation of the Events.Required interface"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the new listener was added successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "0",
+        "type": "method",
+        "example": {
+            "code": "//Register a listener for required events\nthis.api.AddRequiredEventHandler(this);\n//In this context the keyword \"this\" is an implementation of:\ninterface Events.Required {\n\n    void SignatureRequired(SignatureRequest request, Device device);\n\n    void EndOfTransaction(TransactionResult result, Device device);\n\n    void DeviceDiscoveryFinished(List<Device> devices);\n}",
+            "language": "cs"
+        }
+    }
+]

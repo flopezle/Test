@@ -1,0 +1,57 @@
+[
+    {
+        "title": "Status",
+        "name": "status",
+        "type": "enum",
+        "version": "3.1.1",
+        "description": "An enum containing information about the status of the transaction.",
+        "values": [
+            "UserCancelled",
+            "WaitingForCard",
+            "CardInserted",
+            "ApplicationSelection",
+            "ApplicationConfirmation",
+            "AmountValidation",
+            "PinInput",
+            "ManualCardInput",
+            "WaitingForCardRemoval",
+            "TipInput",
+            "AuthenticatingPos",
+            "WaitingForSignature",
+            "ConnectingToHost",
+            "SendingToHost",
+            "ReceivingFromHost",
+            "DisconnectingFromHost",
+            "PinInputComplete",
+            "Undefined"
+        ],
+        "order": "8",
+        "example": {
+            "code": "",
+            "language": "java"
+        }
+    },
+    {
+        "title": "Status",
+        "name": "status",
+        "type": "enum",
+        "version": "3.0.0",
+        "description": "A class containing information about the status of the transaction.",
+        "values": [
+            "WaitingForCard",
+            "CardInserted",
+            "ApplicationSelection",
+            "ApplicationConfirmation",
+            "AmountValidation",
+            "PinInput",
+            "WaitingForCardRemoval",
+            "TipInput",
+            "Undefined"
+        ],
+        "order": "8",
+        "example": {
+            "code": "",
+            "language": "java"
+        }
+    }
+]

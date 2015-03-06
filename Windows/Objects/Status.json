@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Status",
+        "name": "status",
+        "type": "enum",
+        "version": "1.0.0",
+        "description": "An enum containing information about the status of the transaction.",
+        "values": [
+            "UserCancelled",
+            "WaitingForCard",
+            "CardInserted",
+            "ApplicationSelection",
+            "ApplicationConfirmation",
+            "AmountValidation",
+            "PinInput",
+            "ManualCardInput",
+            "WaitingForCardRemoval",
+            "TipInput",
+            "AuthenticatingPos",
+            "WaitingForSignature",
+            "ConnectingToHost",
+            "SendingToHost",
+            "ReceivingFromHost",
+            "DisconnectingFromHost",
+            "PinInputComplete",
+            "Undefined"
+        ],
+        "order": "8",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

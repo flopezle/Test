@@ -1,0 +1,21 @@
+[
+    {
+        "title": "Device Parameter",
+        "name": "DeviceParameter",
+        "type": "enum",
+        "version": "3.0.0",
+        "description": "An enum describing all the available commands to send to a device.<p>When used a legal value is expected with the command</p>",
+        "values": [
+            "BluetoothName",
+            "BluetoothPass",
+            "SystemTimeout",
+            "ScreenTimeout",
+            "SignatureTimeout"
+        ],
+        "order": "3",
+        "example": {
+            "code": "",
+            "language": "java"
+        }
+    }
+]

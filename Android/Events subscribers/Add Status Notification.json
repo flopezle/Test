@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Add Status Notification Event Handler",
+        "name": "addStatusNotificationEventHandler",
+        "version": "3.1.1",
+        "description": "Adds a listener so transaction information can be retrieved. This listener fetches information from the following events : <a href=\"#elem_connectionStatusChanged\">connectionStatusChanged</a>, <a href=\"#elem_currentTransactionStatus\">currentTransactionStatus</a>. The corresponding removal method, <a href=\"#elem_removeStatusNotificationEventHandler\">removeStatusNotificationEventHandler</a>, must be called before the end of your applications life-time to prevent memory leakage.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "Status",
+                "validation": "Required",
+                "notes": "An implementation of the Events.Status interface"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the new listener was added successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "1",
+        "type": "method",
+        "example": {
+            "code": "//Register a listener for transaction information events\nthis.api.addStatusNotificationEventHandler(this);\n//In this context the keyword \"this\" is an implementation of:\ninterface Events.Status {\n\n    void connectionStatusChanged(ConnectionStatus status, Device device);\n\n    void currentTransactionStatus(StatusInfo info, Device device);\n}",
+            "language": "java"
+        }
+    }
+]

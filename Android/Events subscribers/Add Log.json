@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Add Log Event Handler",
+        "name": "addLogEventHandler",
+        "version": "3.1.1",
+        "description": "Adds a listener so log information can be retrieved. This listener fetches information from the following events : <a href=\"#elem_onMessageLogged\">onMessageLogged</a>, <a href=\"#elem_deviceLogsReady\">deviceLogsReady</a>. The corresponding removal method, <a href=\"#elem_removeLogEventHandler\">removeLogEventHandler</a>, must be called before the end of your applications life-time to prevent memory leakage.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "Log",
+                "validation": "Required",
+                "notes": "An implementation of the Events.Log interface"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the new listener was added successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "2",
+        "type": "method",
+        "example": {
+            "code": "//Register a listener for log information events\nthis.api.addLogEventHandler(this);\n//In this context the keyword \"this\" is an implementation of:\ninterface Events.Log {\n\n    void deviceLogsReady(String logs, Device device);\n\n    void onMessageLogged(LogLevel level, String message);\n}",
+            "language": "java"
+        }
+    }
+]

@@ -1,0 +1,41 @@
+[
+    {
+        "title": "Connection Status",
+        "name": "ConnectionStatus",
+        "type": "enum",
+        "version": "1.1.2",
+        "description": "A list of statuses given to a connection",
+        "values": [
+            "Connected",
+            "Connecting",
+            "Disconnected",
+            "Disconnecting",
+            "Initializing",
+            "NotConfigured"
+        ],
+        "order": "2",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Connection Status",
+        "name": "ConnectionStatus",
+        "type": "enum",
+        "version": "1.0.0",
+        "description": "A list of statuses given to a connection",
+        "values": [
+            "Connected",
+            "Connecting",
+            "Disconnected",
+            "Disconnecting",
+            "NotConfigured"
+        ],
+        "order": "2",
+        "example": {
+            "code": "",
+            "language": "cs"
+        }
+    }
+]

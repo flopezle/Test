@@ -1,0 +1,35 @@
+[
+    {
+            "title": "Start monitoring connections",
+            "name": "StartMonitoringConnections",
+            "version": "1.1.8",
+            "description": "Starts a connection monitoring service. The service listens to events sent by the operating system about the connected hardware. If the service notices that a previously connected device suddenly disconnects on the hardware layer it attempts to reconnect to that particular device. Since this is a service it is necessary that the service is turned off before the application ends its life-time. This means that, if the service was running, stopMonitoringConnections() has to be called before the application is exited completely. Note that the service currently only works with <code>USB</code>. In the case of USB the service will only disconnect from the device and when it notices that it has been plugged in again it will connect to it.",
+            "descriptionLists": [
+                {
+                    "name": "Events invoked",
+                    "elements": [
+                        {
+                            "name": "ConnectionStatusChanged",
+                            "description": "Causes the connection manager to invoke this event with the appropriate information."
+                        }
+                    ]
+                },
+                {
+                    "name": "Returns",
+                    "elements": [
+                        {
+                            "name": "None",
+                            "description": "No information is returned."
+                        }
+                    ]
+                }
+            ],
+            "order": "9",
+            "type": "method",
+            "example": {
+                "code": "//Starts the connection monitoring service\n//app starts it's life-time\napi.StartMonitoringConnections();\n...\n//app ends its life-time\napi.StopMonitoringConnections",
+                "language": "cs"
+            }
+    }
+
+]

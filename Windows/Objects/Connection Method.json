@@ -1,0 +1,44 @@
+[
+    {
+        "title": "Connection Method",
+        "name": "ConnectionMethod",
+        "type": "enum",
+        "version": "1.1.2",
+        "description": "An enum representing different types of connection methods.<p><code>BLUETOOTH</code>, <code>USB</code>, <code>SERIAL</code> and <code>SIMULATOR</code> are supported for Windows.</p>",
+        "values": [
+            "USB",
+            "SERIAL",
+            "BLUETOOTH",
+            "HTTPS",
+            "WIFI",
+            "ETHERNET",
+            "SIMULATOR"
+        ],
+        "order": "1",
+        "example": {
+            "code": "//Currently BLUETOOTH, USB, SERIAL and SIMULATOR are the only ConnectionMethod available.\npublic enum ConnectionMethod \n{\n\tUSB,\n\tSERIAL,\n\tBLUETOOTH,\n\t<strike>HTTPS</strike>,\n\t<strike>WIFI</strike>,\n\t<strike>ETHERNET</strike>\n\tSIMULATOR\n}",
+            "language": "cs"
+        }
+    },
+    {
+        "title": "Connection Method",
+        "name": "ConnectionMethod",
+        "type": "enum",
+        "version": "1.0.0",
+        "deprecated": "1.1.2",
+        "description": "An enum representing different types of connection methods.<p>Only <code>BLUETOOTH</code> is supported for WinCE.</p>",
+        "values": [
+            "USB",
+            "SERIAL",
+            "BLUETOOTH",
+            "HTTPS",
+            "WIFI",
+            "ETHERNET"
+        ],
+        "order": "1",
+        "example": {
+            "code": "//Currently BLUETOOTH is the only ConnectionMethod available.\npublic enum ConnectionMethod {\n\t<strike>USB</strike>,\n\t<strike>SERIAL</strike>,\n\tBLUETOOTH,\n\t<strike>HTTPS</strike>,\n\t<strike>WIFI</strike>,\n\t<strike>ETHERNET</strike>\n}",
+            "language": "cs"
+        }
+    }
+]

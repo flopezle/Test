@@ -1,0 +1,34 @@
+[
+    {
+        "title": "Add Pending Results Event Handler",
+        "name": "addPendingResultsEventHandler",
+        "version": "3.2.5",
+        "description": "Adds a listener so information can be retrieved when there is a pending TransactionResult. This listener fetches information from the following events : <a href=\"#elem_pendingTransactionResult\">pendingTransactionResult</a>, <a href=\"#elem_transactionResultReady\">transactionResultReady</a>. The corresponding removal method, <a href=\"#elem_removePendingResultsEventHandler\">removePendingResultsEventHandler</a>, must be called before the end of your applications life-time to prevent memory leakage.",
+        "parameters": [
+            {
+                "name": "listener",
+                "type": "PendingResults",
+                "validation": "Required",
+                "notes": "An implementation of the Events.PendingResult interface"
+            }
+        ],
+        "descriptionLists": [
+            {
+                "name": "Returns",
+                "elements": [
+                    {
+                        "name": "Boolean",
+                        "description": "true if the new listener was added successfully"
+                    }
+                ]
+            }
+        ],
+        "order": "3",
+        "type": "method",
+        "example": {
+            "code": "//Register a listener for log information events\nthis.api.addPendingResultsEventHandler(this);\n//In this context the keyword \"this\" is an implementation of:\ninterface Events.PendingResults {\n\n    void pendingTransactionResult(Device device);\n\n    void transactionResultReady(TransactionResult transactionResult, Device device);\n}
+",
+            "language": "java"
+        }
+    }
+]
